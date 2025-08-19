@@ -25,7 +25,12 @@ public class ProdutoController {
     public ResponseEntity<List<Produto>> getAll() {
         return ResponseEntity.ok(produtoService.findAll());
     }
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Produto> getById(@PathVariable Long id) {
+        return produtoService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
     @PutMapping("/{id}")
     public ResponseEntity<Produto> update(@PathVariable Long id, @RequestBody Produto produto) {
         return produtoService.findById(id)
