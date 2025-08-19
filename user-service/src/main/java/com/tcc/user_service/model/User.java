@@ -11,12 +11,19 @@ public class User {
     private String username;
     private String email;
 
+
+
+    private String password; // NOVO CAMPO
+    private String role;     // opcional
+
     public User() {}
 
-    public User(Long id, String username, String email) {
+    public User(Long id, String username, String email, String password, String role) {
         this.id = id;
         this.username = username;
         this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
     public Long getId() {
@@ -43,4 +50,19 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
