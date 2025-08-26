@@ -1,23 +1,33 @@
 package com.tcc.pedido_service.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.core.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
-    public static final String PEDIDO_QUEUE = "pedido-queue";
+    @Value("${app.rabbitmq.exchange}")
+    private String exchangeName;
+
+    @Value("${app.rabbitmq.queue.pedido-criado}")
+    private String queueName;
+
+    @Value("${app.rabbitmq.routing-key}")
+    private String routingKey;
 
     @Bean
-    public Queue queue() {
-        return new Queue(PEDIDO_QUEUE, true);
+    public TopicExchange pedidoExchange() {
+        return ExchangeBuilder.topicExchange(exchangeName).durable(true).build();
     }
 
     @Bean
-    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-        return new RabbitTemplate(connectionFactory);
+    public Queue pedidoCriadoQueue() {
+        return QueueBuilder.durable(queueName).build();
+    }
+
+    @Bean
+    public Binding pedidoBinding(Queue pedidoCriadoQueue, TopicExchange pedidoExchange) {
+        return BindingBuilder.bind(pedidoCriadoQueue).to(pedidoExchange).with(routingKey);
     }
 
 }

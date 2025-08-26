@@ -1,0 +1,17 @@
+package com.tcc.pedido_service.events;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
+@Data @NoArgsConstructor @AllArgsConstructor
+public class PedidoCriadoEvent {
+    private Long id;
+    private Long userId;
+    private Long produtoId;
+    private Integer quantidade;
+    private Double valorTotal;
+    private LocalDateTime dataCriacao;
+}
