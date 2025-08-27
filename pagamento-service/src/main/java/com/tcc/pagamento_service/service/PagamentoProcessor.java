@@ -10,20 +10,24 @@ import java.util.Random;
 
 @Service
 public class PagamentoProcessor {
-    private final PagamentoRepository pagamentoRepository;
+    private final PagamentoRepository repository;
+    private final Random random = new Random();
 
-    public PagamentoProcessor(PagamentoRepository pagamentoRepository) {
-        this.pagamentoRepository = pagamentoRepository;
-
+    public PagamentoProcessor(PagamentoRepository repository) {
+        this.repository = repository;
     }
+
     public PagamentoProcessadoEvent processar(PedidoCriadoEvent pedido) {
-      String status = new Random().nextBoolean() ? "APROVADO" : "REPROVADO";
-        Pagamento pagamento = new Pagamento(null, pedido.getId(), status);
-        pagamentoRepository.save(pagamento);
+        String status = random.nextDouble() < 0.8 ? "APROVADO" : "RECUSADO";
+
+        Pagamento pagamento = new Pagamento(null, pedido.getProdutoId(), status);
+        repository.save(pagamento);
 
         PagamentoProcessadoEvent event = new PagamentoProcessadoEvent();
-        event.setPedidoId(pedido.getId());
+        event.setPedidoId(pedido.getProdutoId());
         event.setStatus(Long.valueOf(status));
+
         return event;
+
     }
 }

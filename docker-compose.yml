@@ -99,3 +99,22 @@ services:
       - SERVER_PORT=8082
       - SPRING_SECURITY_USER_NAME=admin
       - SPRING_SECURITY_USER_PASSWORD=admin123
+
+  pagamento-service:
+    build: ./pagamento-service
+    container_name: pagamento-service
+    depends_on:
+      - kafka
+      - rabbitmq
+    ports:
+      - "8088:8084"
+    environment:
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+
+      # Kafka tópicos
+      - APP_KAFKA_TOPIC_PEDIDO_CRIADO=pedido-criado
+      - APP_KAFKA_TOPIC_PAGAMENTO_PROCESS
