@@ -12,5 +12,6 @@
         <module>user-service</module>
         <module>produto-service</module>
         <module>pedido-service</module>
+        <module>pagamento-service</module>
     </modules>
 </project>
