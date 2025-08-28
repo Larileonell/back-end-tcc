@@ -12,16 +12,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PedidoConsumerRabbit {
-    private final ObjectMapper mapper = new ObjectMapper();
     private final PagamentoProcessor processor;
     private final PagamentoProducerRabbit producer;
+
     public PedidoConsumerRabbit(PagamentoProcessor processor, PagamentoProducerRabbit producer) {
         this.processor = processor;
         this.producer = producer;
     }
-    @RabbitListener(queues = "pedido.criado")
-    public void consume(String message) throws Exception {
-        PedidoCriadoEvent pedido = mapper.readValue(message, PedidoCriadoEvent.class);
-        producer.enviar(processor.processar(pedido));
+
+    @RabbitListener(queues = "${app.rabbitmq.queue.pedido-criado}")
+    public void consume(PedidoCriadoEvent pedido) {
+        // processa o evento e publica o pagamento processado
+        var pagamento = processor.processar(pedido);
+        producer.enviar(pagamento);
     }
 }

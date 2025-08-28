@@ -17,10 +17,10 @@ public class PedidoEventPublisher {
     @Value("${app.kafka.topic.pedido-criado}")
     private String pedidoTopic;
 
-    @Value("${app.rabbitmq.exchange}")
+    @Value("${app.rabbitmq.exchange.pedido}")
     private String exchange;
 
-    @Value("${app.rabbitmq.routing-key}")
+    @Value("${app.rabbitmq.routing-key.pedido}")
     private String routingKey;
 
     public void publishPedidoCriado(Pedido pedido) {
@@ -35,14 +35,15 @@ public class PedidoEventPublisher {
             );
             String payload = mapper.writeValueAsString(ev);
 
-            if (kafkaTemplate != null) {
-                kafkaTemplate.send(pedidoTopic, String.valueOf(pedido.getId()), payload);
-            }
-            if (rabbitTemplate != null) {
-                rabbitTemplate.convertAndSend(exchange, routingKey, payload);
-            }
+            // Kafka
+            kafkaTemplate.send(pedidoTopic, String.valueOf(pedido.getId()), payload);
+
+            // Rabbit
+            rabbitTemplate.convertAndSend(exchange, routingKey, payload);
+
+            System.out.println("✅ Evento publicado: " + payload);
         } catch (Exception e) {
-            System.err.println("Falha ao publicar evento: " + e.getMessage());
+            System.err.println("❌ Falha ao publicar evento: " + e.getMessage());
         }
     }
 }

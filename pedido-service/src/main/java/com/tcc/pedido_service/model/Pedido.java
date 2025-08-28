@@ -20,6 +20,7 @@ public class Pedido {
     private Long produtoId;
     private Integer quantidade;
     private Double valorTotal;
+    private Integer precoUnitario;
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
 }

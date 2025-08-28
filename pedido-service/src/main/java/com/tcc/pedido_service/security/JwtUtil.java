@@ -9,7 +9,8 @@ import java.security.Key;
 
 @Component
 public class JwtUtil {
-    private final String SECRET_KEY = "minhaChaveSecretaSuperSegura12345";
+
+    private static final String SECRET_KEY = "minhaChaveSecretaSuperSegura12345";
     private final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
 
     public String extractUsername(String token) {

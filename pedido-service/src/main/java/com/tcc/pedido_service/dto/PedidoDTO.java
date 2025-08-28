@@ -7,4 +7,5 @@ public class PedidoDTO {
     private Long userId;
     private Long produtoId;
     private Integer quantidade;
+    private Double precoUnitario;
 }

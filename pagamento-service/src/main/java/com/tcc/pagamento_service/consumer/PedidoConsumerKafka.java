@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PedidoConsumerKafka {
-    private final ObjectMapper mapper = new ObjectMapper();
     private final PagamentoProcessor processor;
     private final PagamentoProducerKafka producer;
 
@@ -19,9 +18,13 @@ public class PedidoConsumerKafka {
         this.processor = processor;
         this.producer = producer;
     }
-    @KafkaListener(topics = "pedido-criado", groupId = "pagamento-group")
-    public void consume(String message) throws Exception{
-        PedidoCriadoEvent pedido = mapper.readValue(message, PedidoCriadoEvent.class);
+
+    @KafkaListener(
+            topics = "${app.kafka.topic.pedido-criado}",
+            groupId = "${spring.kafka.consumer.group-id}",
+            containerFactory = "pedidoKafkaListenerContainerFactory" // 🔥 linkado com a config
+    )
+    public void consume(PedidoCriadoEvent pedido) {
         producer.enviar(processor.processar(pedido));
     }
 }

@@ -20,14 +20,20 @@ public class PagamentoProcessor {
     public PagamentoProcessadoEvent processar(PedidoCriadoEvent pedido) {
         String status = random.nextDouble() < 0.8 ? "APROVADO" : "RECUSADO";
 
-        Pagamento pagamento = new Pagamento(null, pedido.getProdutoId(), status);
+
+        Pagamento pagamento = new Pagamento(
+                pedido.getId(),   // pedidoId
+                status,
+                pedido.getTotal() // valor vindo do pedido
+        );
+
         repository.save(pagamento);
 
+
         PagamentoProcessadoEvent event = new PagamentoProcessadoEvent();
-        event.setPedidoId(pedido.getProdutoId());
-        event.setStatus(Long.valueOf(status));
+        event.setPedidoId(pedido.getId());
+        event.setStatus(status);
 
         return event;
-
     }
 }

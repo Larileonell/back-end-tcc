@@ -6,13 +6,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
-    @Value("${app.rabbitmq.exchange}")
+    @Value("${app.rabbitmq.exchange.pedido}")
     private String exchangeName;
 
     @Value("${app.rabbitmq.queue.pedido-criado}")
     private String queueName;
 
-    @Value("${app.rabbitmq.routing-key}")
+    @Value("${app.rabbitmq.routing-key.pedido}")
     private String routingKey;
 
     @Bean
@@ -29,5 +29,4 @@ public class RabbitMQConfig {
     public Binding pedidoBinding(Queue pedidoCriadoQueue, TopicExchange pedidoExchange) {
         return BindingBuilder.bind(pedidoCriadoQueue).to(pedidoExchange).with(routingKey);
     }
-
 }
