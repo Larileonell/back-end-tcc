@@ -50,11 +50,6 @@ services:
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
-      - SPRING_DATASOURCE_URL=jdbc:h2:mem:userdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-      - SPRING_DATASOURCE_USERNAME=sa
-      - SPRING_DATASOURCE_PASSWORD=
-      - SPRING_H2_CONSOLE_ENABLED=true
-      - SERVER_PORT=8081
 
   produto-service:
     build: ./produto-service
@@ -70,13 +65,6 @@ services:
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
-      - SPRING_DATASOURCE_URL=jdbc:h2:mem:produtodb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-      - SPRING_DATASOURCE_USERNAME=sa
-      - SPRING_DATASOURCE_PASSWORD=
-      - SPRING_H2_CONSOLE_ENABLED=true
-      - SERVER_PORT=8083
-      - SPRING_SECURITY_USER_NAME=admin
-      - SPRING_SECURITY_USER_PASSWORD=admin123
 
   pedido-service:
     build: ./pedido-service
@@ -92,13 +80,6 @@ services:
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
-      - SPRING_DATASOURCE_URL=jdbc:h2:mem:pedidosdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-      - SPRING_DATASOURCE_USERNAME=sa
-      - SPRING_DATASOURCE_PASSWORD=
-      - SPRING_H2_CONSOLE_ENABLED=true
-      - SERVER_PORT=8082
-      - SPRING_SECURITY_USER_NAME=admin
-      - SPRING_SECURITY_USER_PASSWORD=admin123
 
   pagamento-service:
     build: ./pagamento-service
@@ -106,6 +87,7 @@ services:
     depends_on:
       - kafka
       - rabbitmq
+      - pedido-service
     ports:
       - "8088:8084"
     environment:
@@ -114,7 +96,3 @@ services:
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
-
-      # Kafka tópicos
-      - APP_KAFKA_TOPIC_PEDIDO_CRIADO=pedido-criado
-      - APP_KAFKA_TOPIC_PAGAMENTO_PROCESS

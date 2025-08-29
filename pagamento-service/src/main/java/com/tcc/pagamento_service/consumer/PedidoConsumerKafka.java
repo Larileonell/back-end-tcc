@@ -1,8 +1,7 @@
 package com.tcc.pagamento_service.consumer;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tcc.pagamento_service.dto.PagamentoProcessadoEvent;
-import com.tcc.pagamento_service.dto.PedidoCriadoEvent;
+
+import com.tcc.pagamento_service.event.PedidoCriadoEvent;
 import com.tcc.pagamento_service.producer.PagamentoProducerKafka;
 import com.tcc.pagamento_service.service.PagamentoProcessor;
 import org.springframework.kafka.annotation.KafkaListener;

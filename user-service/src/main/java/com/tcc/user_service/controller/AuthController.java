@@ -22,13 +22,11 @@ public class AuthController {
         this.jwtUtil = jwtUtil;
     }
 
-
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody User user) {
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             return ResponseEntity.badRequest().build();
         }
-
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         User saved = userRepository.save(user);
@@ -36,17 +34,16 @@ public class AuthController {
         return ResponseEntity.ok(saved);
     }
 
-
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@RequestBody User user) {
         User found = userRepository.findByUsername(user.getUsername())
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         if (passwordEncoder.matches(user.getPassword(), found.getPassword())) {
-            String token = jwtUtil.generateToken(found.getUsername());
+            String token = jwtUtil.generateToken(found.getId());
             return ResponseEntity.ok(Map.of("token", token));
         } else {
             return ResponseEntity.status(401).body(Map.of("error", "Senha inválida"));
         }
     }
-    }
+}

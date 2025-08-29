@@ -1,19 +1,19 @@
 package com.tcc.pagamento_service.config;
 
 
-import com.tcc.pagamento_service.dto.PedidoCriadoEvent;
+import com.tcc.pagamento_service.event.PedidoCriadoEvent;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.config.TopicBuilder;
-import org.springframework.kafka.core.*;
+import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
@@ -49,7 +49,7 @@ public class KafkaConfig {
         return TopicBuilder.name(pagamentoTopic).partitions(1).replicas(1).build();
     }
 
-    // 🔥 Garantir que PedidoCriadoEvent seja deserializado corretamente
+    // 🔥 Consumer para PedidoCriadoEvent
     @Bean
     public ConsumerFactory<String, PedidoCriadoEvent> pedidoConsumerFactory() {
         Map<String, Object> props = new HashMap<>();

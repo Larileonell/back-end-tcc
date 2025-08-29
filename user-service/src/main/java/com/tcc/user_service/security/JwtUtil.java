@@ -18,9 +18,9 @@ public class JwtUtil {
     private final long EXPIRATION_TIME = 1000 * 60 * 60 * 10; // 10 horas
 
 
-    public String generateToken(String username) {
+    public String generateToken(Long userId) {
         return Jwts.builder()
-                .setSubject(username)
+                .setSubject(String.valueOf(userId)) // 👈 salva o ID como subject
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(key, SignatureAlgorithm.HS256)
@@ -28,7 +28,7 @@ public class JwtUtil {
     }
 
 
-    public String extractUsername(String token) {
+    public String extractUserId(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
@@ -37,16 +37,15 @@ public class JwtUtil {
                 .getSubject();
     }
 
-
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
                     .setSigningKey(key)
                     .build()
                     .parseClaimsJws(token);
-            return true; // se não lançar exceção, é válido
+            return true;
         } catch (JwtException | IllegalArgumentException e) {
-            return false; // token inválido ou expirado
+            return false;
         }
     }
 }

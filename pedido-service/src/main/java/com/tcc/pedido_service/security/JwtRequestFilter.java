@@ -13,11 +13,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
-    private static final Logger logger = LoggerFactory.getLogger(JwtRequestFilter.class);
+
+
     private final JwtUtil jwtUtil;
 
     public JwtRequestFilter(JwtUtil jwtUtil) {
@@ -30,32 +31,38 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
         final String authHeader = request.getHeader("Authorization");
-        String username = null;
-        String jwt = null;
+        String userId = null;
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            jwt = authHeader.substring(7);
+            String jwt = authHeader.substring(7);
             if (jwtUtil.validateToken(jwt)) {
-                username = jwtUtil.extractUsername(jwt);
+                userId = jwtUtil.extractUserId(jwt); // subject = ID do usuário
             }
         }
 
-        logger.info(">>> JWT recebido: {}", jwt);
-        logger.info(">>> Username extraído: {}", username);
+        if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            try {
+                Long userIdLong = Long.parseLong(userId); // ✅ agora subject é ID numérico
 
-        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UsernamePasswordAuthenticationToken authToken =
-                    new UsernamePasswordAuthenticationToken(
-                            username,
-                            null,
-                            List.of(new SimpleGrantedAuthority("ROLE_USER"))
-                    );
-            authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-            SecurityContextHolder.getContext().setAuthentication(authToken);
+                UsernamePasswordAuthenticationToken authToken =
+                        new UsernamePasswordAuthenticationToken(
+                                userIdLong,
+                                null,
+                                List.of(new SimpleGrantedAuthority("ROLE_USER"))
+                        );
+
+                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                SecurityContextHolder.getContext().setAuthentication(authToken);
+
+            } catch (NumberFormatException e) {
+
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido: subject não é um ID numérico");
+                return;
+            }
         }
 
         filterChain.doFilter(request, response);
     }
-
     }
 

@@ -17,8 +17,17 @@
         </processorPath>
         <module name="produto-service" />
         <module name="user-service" />
-        <module name="pedido-service" />
         <module name="pagamento-service" />
+      </profile>
+      <profile name="Annotation profile for pedido-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="pedido-service" />
       </profile>
     </annotationProcessing>
   </component>

@@ -1,9 +1,8 @@
 package com.tcc.pagamento_service.producer;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tcc.pagamento_service.dto.PagamentoProcessadoEvent;
-import com.tcc.pagamento_service.service.PagamentoProcessor;
+import com.tcc.pagamento_service.event.PagamentoProcessadoEvent;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

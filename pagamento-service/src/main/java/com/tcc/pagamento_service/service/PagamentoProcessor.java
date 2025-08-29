@@ -1,11 +1,13 @@
 package com.tcc.pagamento_service.service;
 
-import com.tcc.pagamento_service.dto.PagamentoProcessadoEvent;
-import com.tcc.pagamento_service.dto.PedidoCriadoEvent;
+
+import com.tcc.pagamento_service.event.PagamentoProcessadoEvent;
+import com.tcc.pagamento_service.event.PedidoCriadoEvent;
 import com.tcc.pagamento_service.model.Pagamento;
 import com.tcc.pagamento_service.repository.PagamentoRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 
 @Service
@@ -22,18 +24,18 @@ public class PagamentoProcessor {
 
 
         Pagamento pagamento = new Pagamento(
-                pedido.getId(),   // pedidoId
+                pedido.getId(),     // pedidoId
                 status,
-                pedido.getTotal() // valor vindo do pedido
+                pedido.getTotal()   // valor
         );
-
         repository.save(pagamento);
 
 
-        PagamentoProcessadoEvent event = new PagamentoProcessadoEvent();
-        event.setPedidoId(pedido.getId());
-        event.setStatus(status);
-
-        return event;
+        return new PagamentoProcessadoEvent(
+                pedido.getId(),
+                status,
+                pedido.getTotal(),
+                LocalDateTime.now()
+        );
     }
 }
