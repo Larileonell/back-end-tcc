@@ -1,14 +1,13 @@
 package com.tcc.pedido_service.controller;
 
-import com.tcc.pedido_service.dto.PedidoDTO;
+
 import com.tcc.pedido_service.events.PedidoEventPublisher;
 import com.tcc.pedido_service.model.Pedido;
 import com.tcc.pedido_service.security.JwtUtil;
 import com.tcc.pedido_service.service.PedidoService;
-import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

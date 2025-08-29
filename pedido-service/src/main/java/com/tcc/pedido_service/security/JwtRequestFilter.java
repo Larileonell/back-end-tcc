@@ -30,39 +30,38 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
-        final String authHeader = request.getHeader("Authorization");
-        String userId = null;
+            final String authHeader = request.getHeader("Authorization");
+            String userId = null;
+            String jwt = null;
 
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            String jwt = authHeader.substring(7);
-            if (jwtUtil.validateToken(jwt)) {
-                userId = jwtUtil.extractUserId(jwt); // subject = ID do usuário
+            if (authHeader != null && authHeader.startsWith("Bearer ")) {
+                jwt = authHeader.substring(7);
+                if (jwtUtil.validateToken(jwt)) {
+                    userId = jwtUtil.extractUserId(jwt); // subject = ID do usuário
+                }
             }
-        }
 
-        if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            try {
-                Long userIdLong = Long.parseLong(userId); // ✅ agora subject é ID numérico
+            if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                try {
+                    Long userIdLong = Long.parseLong(userId);
 
-                UsernamePasswordAuthenticationToken authToken =
-                        new UsernamePasswordAuthenticationToken(
-                                userIdLong,
-                                null,
-                                List.of(new SimpleGrantedAuthority("ROLE_USER"))
-                        );
+                    UsernamePasswordAuthenticationToken authToken =
+                            new UsernamePasswordAuthenticationToken(
+                                    userIdLong,
+                                    jwt,
+                                    List.of(new SimpleGrantedAuthority("ROLE_USER"))
+                            );
 
-                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
 
-                SecurityContextHolder.getContext().setAuthentication(authToken);
-
-            } catch (NumberFormatException e) {
-
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido: subject não é um ID numérico");
-                return;
+                } catch (NumberFormatException e) {
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido: subject não é um ID numérico");
+                    return;
+                }
             }
-        }
 
-        filterChain.doFilter(request, response);
-    }
+            filterChain.doFilter(request, response);
+        }
     }
 

@@ -2,7 +2,7 @@ package com.tcc.pedido_service.service;
 
 import com.tcc.pedido_service.dto.ProdutoDTO;
 
-import com.tcc.pedido_service.dto.UsuarioDTO;
+
 import com.tcc.pedido_service.model.Pedido;
 import com.tcc.pedido_service.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,66 +10,46 @@ import org.springframework.http.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
+import org.springframework.web.reactive.function.client.WebClient;
+
 import java.util.List;
 
 @Service
 public class PedidoService {
     private final PedidoRepository pedidoRepository;
-    private final RestTemplate restTemplate = new RestTemplate();
-
-    @Value("${app.user-service.url}")
-    private String userServiceUrl;
 
     @Value("${app.produto-service.url}")
     private String produtoServiceUrl;
+
+    private final WebClient webClient = WebClient.builder().build();
 
     public PedidoService(PedidoRepository pedidoRepository) {
         this.pedidoRepository = pedidoRepository;
     }
 
     public Pedido create(Pedido pedido) {
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String token = authentication != null ? (String) authentication.getCredentials() : null;
+        Long userId = (Long) authentication.getPrincipal();
+        String token = (String) authentication.getCredentials();
 
-        HttpHeaders headers = new HttpHeaders();
-        if (token != null) {
-            headers.set("Authorization", "Bearer " + token);
-        }
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
+        ProdutoDTO produto = webClient.get()
+                .uri(produtoServiceUrl + "/produtos/{id}", pedido.getProdutoId())
+                .header("Authorization", "Bearer " + token)
+                .retrieve()
+                .bodyToMono(ProdutoDTO.class)
+                .block(); // síncrono e simples
 
-
-        ResponseEntity<ProdutoDTO> produtoResponse = restTemplate.exchange(
-                produtoServiceUrl + "/produtos/" + pedido.getProdutoId(),
-                HttpMethod.GET,
-                entity,
-                ProdutoDTO.class
-        );
-        ProdutoDTO produto = produtoResponse.getBody();
         if (produto == null) {
             throw new RuntimeException("Produto não encontrado: " + pedido.getProdutoId());
         }
 
-
-        ResponseEntity<UsuarioDTO> userResponse = restTemplate.exchange(
-                userServiceUrl + "/users/" + pedido.getUserId(),
-                HttpMethod.GET,
-                entity,
-                UsuarioDTO.class
-        );
-       UsuarioDTO usuario = userResponse.getBody();
-        if (usuario == null) {
-            throw new RuntimeException("Usuário não encontrado: " + pedido.getUserId());
-        }
-
-
         double total = produto.getPreco() * pedido.getQuantidade();
         pedido.setValorTotal(total);
+        pedido.setUserId(userId);
 
         return pedidoRepository.save(pedido);
     }
-
     public List<Pedido> listarPedidos() {
         return pedidoRepository.findAll();
     }

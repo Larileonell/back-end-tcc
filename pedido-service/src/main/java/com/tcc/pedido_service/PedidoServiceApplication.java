@@ -10,4 +10,5 @@ public class PedidoServiceApplication {
 		SpringApplication.run(PedidoServiceApplication.class, args);
 	}
 
+
 }
