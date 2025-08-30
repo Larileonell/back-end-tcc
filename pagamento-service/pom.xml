@@ -16,7 +16,7 @@
     <name>pagamento-service</name>
     <description>Demo project for Spring Boot</description>
 
-    <!-- ✅ ENCODING CONFIG -->
+
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -76,7 +76,6 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Testes -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -114,7 +113,7 @@
                 </configuration>
             </plugin>
 
-            <!-- ✅ Força encoding UTF-8 -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
