@@ -26,7 +26,7 @@ public class PagamentoProcessor {
         Pagamento pagamento = new Pagamento(
                 pedido.getId(),     // pedidoId
                 status,
-                pedido.getTotal()   // valor
+                pedido.getValorTotal()   // valor
         );
         repository.save(pagamento);
 
@@ -34,7 +34,7 @@ public class PagamentoProcessor {
         return new PagamentoProcessadoEvent(
                 pedido.getId(),
                 status,
-                pedido.getTotal(),
+                pedido.getValorTotal(),
                 LocalDateTime.now()
         );
     }

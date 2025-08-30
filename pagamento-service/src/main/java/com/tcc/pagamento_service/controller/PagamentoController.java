@@ -1,7 +1,10 @@
 package com.tcc.pagamento_service.controller;
 
+import com.tcc.pagamento_service.event.PagamentoProcessadoEvent;
+import com.tcc.pagamento_service.event.PedidoCriadoEvent;
 import com.tcc.pagamento_service.model.Pagamento;
 import com.tcc.pagamento_service.repository.PagamentoRepository;
+import com.tcc.pagamento_service.service.PagamentoProcessor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +15,17 @@ import java.util.List;
 @RequestMapping("/pagamentos")
 public class PagamentoController {
     private final PagamentoRepository pagamentoRepository;
+    private final PagamentoProcessor pagamentoProcessor;
 
-    public PagamentoController(PagamentoRepository pagamentoRepository) {
+    public PagamentoController(PagamentoRepository pagamentoRepository, PagamentoProcessor pagamentoProcessor) {
         this.pagamentoRepository = pagamentoRepository;
+        this.pagamentoProcessor = pagamentoProcessor;
     }
 
     @PostMapping
-    public Pagamento criar(@RequestBody Pagamento pagamento) {
-        if (pagamento.getStatus() == null) {
-            pagamento.setStatus("PENDENTE");
-        }
-        if (pagamento.getDataCriacao() == null) {
-            pagamento.setDataCriacao(LocalDateTime.now());
-        }
-        return pagamentoRepository.save(pagamento);
+    public ResponseEntity<PagamentoProcessadoEvent> criar(@RequestBody PedidoCriadoEvent pedido) {
+        PagamentoProcessadoEvent evento = pagamentoProcessor.processar(pedido);
+        return ResponseEntity.ok(evento);
     }
 
     @GetMapping

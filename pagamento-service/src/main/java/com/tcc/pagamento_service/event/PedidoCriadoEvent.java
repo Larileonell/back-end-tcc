@@ -15,6 +15,6 @@ public class PedidoCriadoEvent {
     private Long userId;
     private Long produtoId;
     private Integer quantidade;
-    private Double total;
+    private Double valorTotal;
     private LocalDateTime dataCriacao;
 }
