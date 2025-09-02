@@ -13,5 +13,6 @@
         <module>produto-service</module>
         <module>pedido-service</module>
         <module>pagamento-service</module>
+        <module>notification-service</module>
     </modules>
 </project>
