@@ -1,12 +1,34 @@
 package com.tcc.notification_service.controller;
 
+
+import com.tcc.notification_service.model.Notification;
+import com.tcc.notification_service.repository.NotificationRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("/notificacoes")
 public class HeathController {
-    @GetMapping("/healthz")
-    public String health() {
-        return "notification-service OK";
+    private final NotificationRepository repository;
+
+
+    public HeathController(NotificationRepository repository) {
+        this.repository = repository;
+    }
+
+
+    @GetMapping
+    public List<Notification> listar() {
+        return repository.findAll();
+    }
+
+
+    @GetMapping("/{pedidoId}")
+    public List<Notification> listarPorPedido(@PathVariable Long pedidoId) {
+        return repository.findByPedidoId(pedidoId);
     }
 }
