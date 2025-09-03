@@ -17,32 +17,56 @@ import org.springframework.amqp.support.converter.MessageConverter;
 @EnableRabbit
 public class RabbitMQConfig {
 
-
+    // Pedido
     @Value("${app.rabbitmq.exchange.pedido}")
-    private String exchangeName;
+    private String pedidoExchangeName;
 
     @Value("${app.rabbitmq.queue.pedido-criado}")
-    private String queueName;
+    private String pedidoQueueName;
 
     @Value("${app.rabbitmq.routing-key.pedido}")
-    private String routingKey;
+    private String pedidoRoutingKey;
+
+    // Pagamento
+    @Value("${app.rabbitmq.exchange.pagamento}")
+    private String pagamentoExchangeName;
+
+    @Value("${app.rabbitmq.queue.pagamento-processado}")
+    private String pagamentoQueueName;
+
+    @Value("${app.rabbitmq.routing-key.pagamento}")
+    private String pagamentoRoutingKey;
 
 
     @Bean
     public TopicExchange pedidoExchange() {
-        return ExchangeBuilder.topicExchange(exchangeName).durable(true).build();
+        return ExchangeBuilder.topicExchange(pedidoExchangeName).durable(true).build();
     }
-
 
     @Bean
     public Queue pedidoCriadoQueue() {
-        return QueueBuilder.durable(queueName).build();
+        return QueueBuilder.durable(pedidoQueueName).build();
+    }
+
+    @Bean
+    public Binding pedidoBinding(Queue pedidoCriadoQueue, TopicExchange pedidoExchange) {
+        return BindingBuilder.bind(pedidoCriadoQueue).to(pedidoExchange).with(pedidoRoutingKey);
     }
 
 
     @Bean
-    public Binding pedidoBinding(Queue pedidoCriadoQueue, TopicExchange pedidoExchange) {
-        return BindingBuilder.bind(pedidoCriadoQueue).to(pedidoExchange).with(routingKey);
+    public TopicExchange pagamentoExchange() {
+        return ExchangeBuilder.topicExchange(pagamentoExchangeName).durable(true).build();
+    }
+
+    @Bean
+    public Queue pagamentoProcessadoQueue() {
+        return QueueBuilder.durable(pagamentoQueueName).build();
+    }
+
+    @Bean
+    public Binding pagamentoBinding(Queue pagamentoProcessadoQueue, TopicExchange pagamentoExchange) {
+        return BindingBuilder.bind(pagamentoProcessadoQueue).to(pagamentoExchange).with(pagamentoRoutingKey);
     }
 
 
@@ -51,14 +75,12 @@ public class RabbitMQConfig {
         return new Jackson2JsonMessageConverter();
     }
 
-
     @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory, MessageConverter messageConverter) {
         RabbitTemplate template = new RabbitTemplate(connectionFactory);
         template.setMessageConverter(messageConverter);
         return template;
     }
-
 
     @Bean
     public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory,
