@@ -49,7 +49,7 @@ public class KafkaConfig {
         return TopicBuilder.name(pagamentoTopic).partitions(1).replicas(1).build();
     }
 
-    // 🔥 Consumer para PedidoCriadoEvent
+
     @Bean
     public ConsumerFactory<String, PedidoCriadoEvent> pedidoConsumerFactory() {
         Map<String, Object> props = new HashMap<>();

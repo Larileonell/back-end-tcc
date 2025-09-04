@@ -23,11 +23,7 @@ public class PagamentoProcessor {
         String status = random.nextDouble() < 0.8 ? "APROVADO" : "RECUSADO";
 
 
-        Pagamento pagamento = new Pagamento(
-                pedido.getId(),     // pedidoId
-                status,
-                pedido.getValorTotal()   // valor
-        );
+       Pagamento pagamento = new Pagamento(pedido.getId(),status, pedido.getValorTotal());
         repository.save(pagamento);
 
 

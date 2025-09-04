@@ -38,7 +38,7 @@ public class PedidoService {
                 .header("Authorization", "Bearer " + token)
                 .retrieve()
                 .bodyToMono(ProdutoDTO.class)
-                .block(); // síncrono e simples
+                .block();
 
         if (produto == null) {
             throw new RuntimeException("Produto não encontrado: " + pedido.getProdutoId());

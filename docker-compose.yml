@@ -1,6 +1,9 @@
 version: "3.8"
 
 services:
+  # ------------------------
+  # Infra
+  # ------------------------
   zookeeper:
     image: bitnami/zookeeper:3.9
     environment:
@@ -36,35 +39,104 @@ services:
       - "5672:5672"
       - "15672:15672"
 
+  # ------------------------
+  # PostgreSQL Databases
+  # ------------------------
+  postgres-user:
+    image: postgres:15
+    container_name: postgres-user
+    restart: always
+    environment:
+      POSTGRES_DB: userdb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+    volumes:
+      - user_data:/var/lib/postgresql/data
+
+  postgres-produto:
+    image: postgres:15
+    container_name: postgres-produto
+    restart: always
+    environment:
+      POSTGRES_DB: produtodb
+      POSTGRES_USER: produto
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5434:5432"
+    volumes:
+      - produto_data:/var/lib/postgresql/data
+
+  postgres-pedido:
+    image: postgres:15
+    container_name: postgres-pedido
+    restart: always
+    environment:
+      POSTGRES_DB: pedidodb
+      POSTGRES_USER: pedido
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5435:5432"
+    volumes:
+      - pedido_data:/var/lib/postgresql/data
+
+  postgres-pagamento:
+    image: postgres:15
+    container_name: postgres-pagamento
+    restart: always
+    environment:
+      POSTGRES_DB: pagamentodb
+      POSTGRES_USER: pagamento
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5436:5432"
+    volumes:
+      - pagamento_data:/var/lib/postgresql/data
+
+  postgres-notification:
+    image: postgres:15
+    container_name: postgres-notification
+    restart: always
+    environment:
+      POSTGRES_DB: notificationdb
+      POSTGRES_USER: notification
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5437:5432"
+    volumes:
+      - notification_data:/var/lib/postgresql/data
+
+  # ------------------------
+  # Microservices
+  # ------------------------
   user-service:
     build: ./user-service
     container_name: user-service
     depends_on:
-      - kafka
-      - rabbitmq
+      - postgres-user
     ports:
-      - "8085:8081"
+      - "8085:8085"
     environment:
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - SPRING_RABBITMQ_HOST=rabbitmq
-      - SPRING_RABBITMQ_PORT=5672
-      - SPRING_RABBITMQ_USERNAME=guest
-      - SPRING_RABBITMQ_PASSWORD=guest
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-user:5432/userdb
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
 
   produto-service:
     build: ./produto-service
     container_name: produto-service
     depends_on:
-      - kafka
-      - rabbitmq
+      - postgres-produto
     ports:
-      - "8086:8083"
+      - "8086:8086"
     environment:
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - SPRING_RABBITMQ_HOST=rabbitmq
-      - SPRING_RABBITMQ_PORT=5672
-      - SPRING_RABBITMQ_USERNAME=guest
-      - SPRING_RABBITMQ_PASSWORD=guest
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-produto:5432/produtodb
+      - SPRING_DATASOURCE_USERNAME=produto
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
 
   pedido-service:
     build: ./pedido-service
@@ -72,9 +144,15 @@ services:
     depends_on:
       - kafka
       - rabbitmq
+      - postgres-pedido
     ports:
-      - "8087:8082"
+      - "8087:8087"
     environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-pedido:5432/pedidodb
+      - SPRING_DATASOURCE_USERNAME=pedido
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
       - SPRING_RABBITMQ_HOST=rabbitmq
       - SPRING_RABBITMQ_PORT=5672
@@ -87,26 +165,48 @@ services:
     depends_on:
       - kafka
       - rabbitmq
-      - pedido-service
+      - postgres-pagamento
     ports:
-      - "8088:8084"
+      - "8088:8088"
     environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-pagamento:5432/pagamentodb
+      - SPRING_DATASOURCE_USERNAME=pagamento
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
       - SPRING_RABBITMQ_HOST=rabbitmq
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
+
   notification-service:
     build: ./notification-service
     container_name: notification-service
     depends_on:
       - kafka
       - rabbitmq
+      - postgres-notification
     ports:
       - "8089:8089"
     environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-notification:5432/notificationdb
+      - SPRING_DATASOURCE_USERNAME=notification
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
       - SPRING_RABBITMQ_HOST=rabbitmq
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
+
+# ------------------------
+# Volumes
+# ------------------------
+volumes:
+  user_data:
+  produto_data:
+  pedido_data:
+  pagamento_data:
+  notification_data:

@@ -20,9 +20,8 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll()   // login/registro liberado
-                        .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers("/pedidos/**").authenticated() // precisa token
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/pedidos/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

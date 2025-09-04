@@ -13,7 +13,7 @@ import java.util.Date;
 public class JwtUtil {
 
 
-    private final String SECRET_KEY = "minhaChaveSecretaSuperSegura12345"; // mínimo 256 bits
+    private final String SECRET_KEY = "minhaChaveSecretaSuperSegura12345";
     private final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     private final long EXPIRATION_TIME = 1000 * 60 * 60 * 10; // 10 horas
 
