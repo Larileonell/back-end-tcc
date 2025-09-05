@@ -1,5 +1,6 @@
 package com.tcc.pagamento_service.controller;
 
+import com.tcc.pagamento_service.dto.PagamentoRequest;
 import com.tcc.pagamento_service.event.PagamentoProcessadoEvent;
 import com.tcc.pagamento_service.event.PedidoCriadoEvent;
 import com.tcc.pagamento_service.model.Pagamento;
@@ -23,18 +24,26 @@ public class PagamentoController {
     }
 
     @PostMapping
-    public ResponseEntity<PagamentoProcessadoEvent> criar(@RequestBody PedidoCriadoEvent pedido) {
-        PagamentoProcessadoEvent evento = pagamentoProcessor.processar(pedido);
-        return ResponseEntity.ok(evento);
+    public ResponseEntity<Pagamento> criar(@RequestBody PedidoCriadoEvent pedido) {
+        Pagamento pagamento = pagamentoProcessor.criarPagamento(pedido);
+        return ResponseEntity.ok(pagamento);
+    }
+
+
+    @PostMapping("/{id}/processar")
+    public ResponseEntity<PagamentoProcessadoEvent> processar(@PathVariable Long id) {
+        return pagamentoRepository.findById(id)
+                .map(pagamento -> ResponseEntity.ok(pagamentoProcessor.processar(pagamento)))
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping
-    public List<Pagamento> listar(){
+    public List<Pagamento> listar() {
         return pagamentoRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pagamento> get (@PathVariable Long id){
+    public ResponseEntity<Pagamento> get(@PathVariable Long id) {
         return pagamentoRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -44,4 +53,4 @@ public class PagamentoController {
     public List<Pagamento> byPedido(@PathVariable Long pedidoId) {
         return pagamentoRepository.findByPedidoId(pedidoId);
     }
-}
+    }

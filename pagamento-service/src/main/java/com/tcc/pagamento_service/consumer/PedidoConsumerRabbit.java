@@ -2,7 +2,9 @@ package com.tcc.pagamento_service.consumer;
 
 
 
+import com.tcc.pagamento_service.event.PagamentoProcessadoEvent;
 import com.tcc.pagamento_service.event.PedidoCriadoEvent;
+import com.tcc.pagamento_service.model.Pagamento;
 import com.tcc.pagamento_service.producer.PagamentoProducerRabbit;
 import com.tcc.pagamento_service.service.PagamentoProcessor;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -20,7 +22,14 @@ public class PedidoConsumerRabbit {
 
     @RabbitListener(queues = "${app.rabbitmq.queue.pedido-criado}")
     public void consume(PedidoCriadoEvent pedido) {
-        var pagamento = processor.processar(pedido);
-        producer.enviar(pagamento);
+        Pagamento pagamento = processor.criarPagamento(pedido);
+        System.out.println("💾 Pagamento criado como PENDENTE para pedido " + pedido.getId());
+
+
+        PagamentoProcessadoEvent evento = processor.processar(pagamento);
+
+
+        producer.enviar(evento);
+        System.out.println("📤 Pagamento processado enviado para RabbitMQ: " + evento);
     }
 }

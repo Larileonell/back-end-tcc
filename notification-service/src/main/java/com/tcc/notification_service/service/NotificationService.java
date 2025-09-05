@@ -29,8 +29,8 @@ public class NotificationService {
         n.setCanal(canal);
         n.setStatus(ev.getStatus());
         n.setValorTotal(String.valueOf(ev.getValorTotal()));
-        n.setMensagem("Pagamento do pedido " + ev.getPedidoId() + " = " + ev.getStatus());
+        n.setMensagem("Pagamento do pedido " + ev.getPedidoId() + " = " + ev.getStatus() +
+                " | Valor: " + ev.getValorTotal());
         notificationRepository.save(n);
         System.out.println("💸 [NOTIF] " + canal + " - Pagamento processado: " + ev);
-    }
-}
+    }}

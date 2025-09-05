@@ -27,5 +27,6 @@ public class Pagamento {
         this.pedidoId = pedidoId;
         this.status = status;
         this.valor = valor;
+
     }
 }
