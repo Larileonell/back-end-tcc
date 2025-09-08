@@ -1,25 +1,28 @@
 package com.tcc.pagamento_service.service;
 
 
-import com.tcc.pagamento_service.dto.PagamentoRequest;
 import com.tcc.pagamento_service.event.PagamentoProcessadoEvent;
 import com.tcc.pagamento_service.event.PedidoCriadoEvent;
 import com.tcc.pagamento_service.model.Pagamento;
 import com.tcc.pagamento_service.repository.PagamentoRepository;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Random;
 
 @Service
 public class PagamentoProcessor {
+
     private final PagamentoRepository repository;
     private final Random random = new Random();
+    private final MeterRegistry registry;
 
-    public PagamentoProcessor(PagamentoRepository repository) {
+    public PagamentoProcessor(PagamentoRepository repository, MeterRegistry registry) {
         this.repository = repository;
+        this.registry = registry;
     }
+
 
     public Pagamento criarPagamento(PedidoCriadoEvent pedido) {
         Pagamento pagamento = new Pagamento();
@@ -27,8 +30,15 @@ public class PagamentoProcessor {
         pagamento.setStatus("PENDENTE");
         pagamento.setValor(pedido.getValorTotal());
         pagamento.setDataCriacao(LocalDateTime.now());
-        return repository.save(pagamento);
+
+        Pagamento saved = repository.save(pagamento);
+
+
+        registry.counter("pagamentos.criados").increment();
+
+        return saved;
     }
+
 
     public PagamentoProcessadoEvent processar(Pagamento pagamento) {
         if ("PENDENTE".equals(pagamento.getStatus())) {
@@ -38,6 +48,9 @@ public class PagamentoProcessor {
             pagamento.setDataCriacao(LocalDateTime.now());
             repository.save(pagamento);
 
+
+            registry.counter("pagamentos.processados.total", "status", status).increment();
+
             return new PagamentoProcessadoEvent(
                     pagamento.getPedidoId(),
                     status,
@@ -45,6 +58,7 @@ public class PagamentoProcessor {
                     pagamento.getDataCriacao()
             );
         }
+
 
         return new PagamentoProcessadoEvent(
                 pagamento.getPedidoId(),
