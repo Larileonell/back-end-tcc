@@ -29,7 +29,7 @@ public class PagamentoProcessor {
         pagamento.setDataCriacao(LocalDateTime.now());
         return repository.save(pagamento);
     }
-    
+
     public PagamentoProcessadoEvent processar(Pagamento pagamento) {
         if ("PENDENTE".equals(pagamento.getStatus())) {
             String status = random.nextDouble() < 0.8 ? "APROVADO" : "RECUSADO";

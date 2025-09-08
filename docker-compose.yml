@@ -39,13 +39,29 @@ services:
       - "5672:5672"
       - "15672:15672"
 
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+
   # ------------------------
   # PostgreSQL Databases
   # ------------------------
   postgres-user:
     image: postgres:15
     container_name: postgres-user
-    restart: always
     environment:
       POSTGRES_DB: userdb
       POSTGRES_USER: user
@@ -58,7 +74,6 @@ services:
   postgres-produto:
     image: postgres:15
     container_name: postgres-produto
-    restart: always
     environment:
       POSTGRES_DB: produtodb
       POSTGRES_USER: produto
@@ -71,7 +86,6 @@ services:
   postgres-pedido:
     image: postgres:15
     container_name: postgres-pedido
-    restart: always
     environment:
       POSTGRES_DB: pedidodb
       POSTGRES_USER: pedido
@@ -84,7 +98,6 @@ services:
   postgres-pagamento:
     image: postgres:15
     container_name: postgres-pagamento
-    restart: always
     environment:
       POSTGRES_DB: pagamentodb
       POSTGRES_USER: pagamento
@@ -97,7 +110,6 @@ services:
   postgres-notification:
     image: postgres:15
     container_name: postgres-notification
-    restart: always
     environment:
       POSTGRES_DB: notificationdb
       POSTGRES_USER: notification
@@ -123,6 +135,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=password
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - SPRING_JPA_SHOW_SQL=true
+      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
+      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
 
   produto-service:
     build: ./produto-service
@@ -137,6 +151,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=password
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - SPRING_JPA_SHOW_SQL=true
+      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
+      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
 
   pedido-service:
     build: ./pedido-service
@@ -158,6 +174,8 @@ services:
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
+      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
+      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
 
   pagamento-service:
     build: ./pagamento-service
@@ -179,6 +197,8 @@ services:
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
+      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
+      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
 
   notification-service:
     build: ./notification-service
@@ -200,6 +220,8 @@ services:
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
+      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
+      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
 
 # ------------------------
 # Volumes
