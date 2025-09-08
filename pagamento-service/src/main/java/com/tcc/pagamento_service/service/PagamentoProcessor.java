@@ -16,35 +16,41 @@ import java.util.Random;
 public class PagamentoProcessor {
     private final PagamentoRepository repository;
     private final Random random = new Random();
+
     public PagamentoProcessor(PagamentoRepository repository) {
         this.repository = repository;
     }
 
+    public Pagamento criarPagamento(PedidoCriadoEvent pedido) {
+        Pagamento pagamento = new Pagamento();
+        pagamento.setPedidoId(pedido.getId());
+        pagamento.setStatus("PENDENTE");
+        pagamento.setValor(pedido.getValorTotal());
+        pagamento.setDataCriacao(LocalDateTime.now());
+        return repository.save(pagamento);
+    }
+    
     public PagamentoProcessadoEvent processar(Pagamento pagamento) {
         if ("PENDENTE".equals(pagamento.getStatus())) {
-
             String status = random.nextDouble() < 0.8 ? "APROVADO" : "RECUSADO";
+
             pagamento.setStatus(status);
+            pagamento.setDataCriacao(LocalDateTime.now());
             repository.save(pagamento);
 
             return new PagamentoProcessadoEvent(
                     pagamento.getPedidoId(),
                     status,
                     pagamento.getValor(),
-                    LocalDateTime.now()
+                    pagamento.getDataCriacao()
             );
         }
+
         return new PagamentoProcessadoEvent(
                 pagamento.getPedidoId(),
                 pagamento.getStatus(),
                 pagamento.getValor(),
                 pagamento.getDataCriacao()
         );
-    }
-
-
-    public Pagamento criarPagamento(PedidoCriadoEvent pedido) {
-        Pagamento pagamento = new Pagamento(pedido.getId(), "PENDENTE", pedido.getValorTotal());
-        return repository.save(pagamento);
     }
 }
