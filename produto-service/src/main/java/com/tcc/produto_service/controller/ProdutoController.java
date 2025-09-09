@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
-    private ProdutoService produtoService;
+    private final ProdutoService produtoService;
 
     public ProdutoController(ProdutoService produtoService) {
         this.produtoService = produtoService;
@@ -25,12 +25,14 @@ public class ProdutoController {
     public ResponseEntity<List<Produto>> getAll() {
         return ResponseEntity.ok(produtoService.findAll());
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<Produto> getById(@PathVariable Long id) {
         return produtoService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<Produto> update(@PathVariable Long id, @RequestBody Produto produto) {
         return produtoService.findById(id)
@@ -50,6 +52,5 @@ public class ProdutoController {
         }
         return ResponseEntity.notFound().build();
     }
-
 
 }

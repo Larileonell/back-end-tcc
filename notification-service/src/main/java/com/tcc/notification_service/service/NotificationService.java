@@ -26,9 +26,7 @@ public class NotificationService {
         n.setMensagem("Pedido " + ev.getId() + " criado para usuário " + ev.getUserId());
         notificationRepository.save(n);
 
-
-        registry.counter("notificacoes.pedido.criado").increment();
-
+        registry.counter("notificacoes.pedido.criado", "canal", canal).increment();
         System.out.println("🔔 [NOTIF] " + canal + " - Pedido criado: " + ev);
     }
 
@@ -44,9 +42,7 @@ public class NotificationService {
                 " | Valor: " + ev.getValorTotal());
         notificationRepository.save(n);
 
-
-        registry.counter("notificacoes.pagamento.processado").increment();
-
+        registry.counter("notificacoes.pagamento.processado", "canal", canal).increment();
         System.out.println("💸 [NOTIF] " + canal + " - Pagamento processado: " + ev);
     }
 }

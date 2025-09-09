@@ -19,36 +19,30 @@ public class PedidoController {
     private final PedidoEventPublisher publisher;
     private final JwtUtil jwtUtil;
 
-
     public PedidoController(PedidoService pedidoService, PedidoEventPublisher publisher, JwtUtil jwtUtil) {
         this.pedidoService = pedidoService;
         this.publisher = publisher;
         this.jwtUtil = jwtUtil;
     }
 
-
     @PostMapping
     public ResponseEntity<Pedido> criarPedido(@RequestBody Pedido pedido) {
         Pedido novoPedido = pedidoService.create(pedido);
+        publisher.publishPedidoCriado(novoPedido); // publica no Kafka e RabbitMQ
         return ResponseEntity.ok(novoPedido);
     }
-
 
     @GetMapping
     public ResponseEntity<List<Pedido>> listarTodos() {
         return ResponseEntity.ok(pedidoService.listarPedidos());
     }
 
-
     @GetMapping("/{id}")
     public ResponseEntity<Pedido> buscarPorId(@PathVariable Long id) {
         Pedido pedido = pedidoService.findById(id);
-        if (pedido == null) {
-            return ResponseEntity.notFound().build();
-        }
+        if (pedido == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(pedido);
     }
-
 
     @GetMapping("/usuario/{userId}")
     public ResponseEntity<List<Pedido>> listarPorUsuario(@PathVariable Long userId) {

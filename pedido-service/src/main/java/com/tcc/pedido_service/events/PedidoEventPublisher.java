@@ -35,10 +35,10 @@ public class PedidoEventPublisher {
             );
             String payload = mapper.writeValueAsString(ev);
 
-            // Kafka
+
             kafkaTemplate.send(pedidoTopic, String.valueOf(pedido.getId()), payload);
 
-            // Rabbit
+
             rabbitTemplate.convertAndSend(exchange, routingKey, payload);
 
             System.out.println("✅ Evento publicado: " + payload);

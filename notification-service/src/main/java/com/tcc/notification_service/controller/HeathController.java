@@ -17,17 +17,14 @@ import java.util.stream.Collectors;
 public class HeathController {
     private final NotificationRepository repository;
 
-
     public HeathController(NotificationRepository repository) {
         this.repository = repository;
     }
-
 
     @GetMapping
     public List<Notification> listar() {
         return repository.findAll();
     }
-
 
     @GetMapping("/{pedidoId}")
     public List<NotificationDTO> listarPorPedido(@PathVariable Long pedidoId) {
