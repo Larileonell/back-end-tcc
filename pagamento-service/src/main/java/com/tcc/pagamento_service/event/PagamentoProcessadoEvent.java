@@ -1,6 +1,8 @@
 package com.tcc.pagamento_service.event;
 
 import lombok.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -9,6 +11,6 @@ import java.time.LocalDateTime;
 public class PagamentoProcessadoEvent {
     private Long pedidoId;
     private String status;
-    private Double valor;
+    private BigDecimal valor;
     private LocalDateTime dataProcessamento;
 }

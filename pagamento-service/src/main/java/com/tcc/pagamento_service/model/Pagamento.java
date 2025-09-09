@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,13 +20,7 @@ public class Pagamento {
 
     private Long pedidoId;
     private String status;
-    private Double valor;
+    private String formaPagamento;
+    private BigDecimal valorPago;
     private LocalDateTime dataCriacao = LocalDateTime.now();
-
-    public Pagamento(Long pedidoId, String status, Double valor) {
-        this.pedidoId = pedidoId;
-        this.status = status;
-        this.valor = valor;
-        this.dataCriacao = LocalDateTime.now();
-    }
 }
