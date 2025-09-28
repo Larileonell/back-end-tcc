@@ -1,5 +1,7 @@
 📦 Sistema de Microsserviços para Processamento de Pagamentos
+
 🎯 Finalidade do Projeto
+
 
 Este projeto foi desenvolvido como parte do Trabalho de Conclusão de Curso (TCC) e tem como objetivo:
 
@@ -12,6 +14,7 @@ Integrar filas de mensageria (RabbitMQ/Kafka) para comunicação assíncrona.
 Avaliar e coletar métricas de escalabilidade através de Micrometer, Prometheus e Grafana.
 
 Documentar e disponibilizar uma API REST bem definida com Swagger/OpenAPI.
+
 
 🛠️ Tecnologias Utilizadas
 Backend (Java + Spring Boot)
