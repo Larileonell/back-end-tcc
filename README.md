@@ -40,15 +40,22 @@ Este projeto foi desenvolvido como parte do **Trabalho de Conclusão de Curso (T
 
 ---
 
-## ⚙️ Estrutura de Microsserviços
+### ⚙️ Estrutura de Microsserviços
 
-- **pedido-service** → Responsável pelo cadastro e gerenciamento de pedidos.  
-- **pagamento-service** → Processa pagamentos, aprova ou recusa com base nas regras de negócio.  
+- **user-service** → Responsável pelo cadastro, autenticação e gestão de usuários (JWT).  
+- **produto-service** → Responsável pelo CRUD de produtos.  
+- **pedido-service** → Gerencia pedidos, vinculando usuários e produtos.  
+- **pagamento-service** → Processa pagamentos (aprovação ou recusa) e emite eventos.  
 - **notificacao-service** → Consome eventos e envia notificações simuladas.  
 
-Comunicação assíncrona feita via **RabbitMQ** e **Kafka**.  
+### 🔗 Comunicação entre serviços
+- **Síncrona (REST API):**
+  - `pedido-service` → consulta usuários no **user-service**  
+  - `pedido-service` → consulta produtos no **produto-service**  
 
----
+- **Assíncrona (Mensageria):**
+  - `pedido-service` → envia evento de pedido criado para o **pagamento-service** (RabbitMQ/Kafka)  
+  - `pagamento-service` → envia evento de pagamento processado para o **notificacao-service**  
 
 ## 📊 Coleta de Métricas
 
