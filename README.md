@@ -68,4 +68,14 @@ Essas métricas são extraídas pelo **Prometheus** e visualizadas em **dashboar
 
 Com **Swagger/OpenAPI**, cada microsserviço expõe documentação interativa no endpoint:  
 
+---
+
+## 🚀 Como Executar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/tcc-microsservicos.git
+   cd tcc-microsservicos
+docker-compose up -d
+
 
