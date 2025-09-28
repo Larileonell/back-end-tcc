@@ -54,3 +54,18 @@ Comunicação assíncrona feita via **RabbitMQ** e **Kafka**.
 
 Todos os serviços expõem métricas no endpoint:
 
+Exemplos de métricas coletadas:
+- `http_server_requests_seconds_count` → Total de requisições HTTP.  
+- `pagamentos_aprovados_total` → Total de pagamentos aprovados.  
+- `pagamentos_recusados_total` → Total de pagamentos recusados.  
+- `pagamentos_recebidos_total` → Total de pagamentos recebidos.  
+
+Essas métricas são extraídas pelo **Prometheus** e visualizadas em **dashboards Grafana** para análise de escalabilidade.
+
+---
+
+## 📖 Documentação da API
+
+Com **Swagger/OpenAPI**, cada microsserviço expõe documentação interativa no endpoint:  
+
+
