@@ -8,9 +8,15 @@ import com.tcc.pagamento_service.service.PagamentoProcessor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 
 import java.math.BigDecimal;
+
 import java.util.List;
 
 @RestController
@@ -32,24 +38,36 @@ public class PagamentoController {
     }
 
     @PostMapping
-    public ResponseEntity<PagamentoProcessadoEvent> pagar(@RequestBody PagamentoRequest request) {
+    public ResponseEntity<PagamentoProcessadoEvent> pagar(
+            @RequestBody PagamentoRequest request,
+            @RequestHeader("Authorization") String authHeader) {
+
+        try {
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", authHeader); // já inclui "Bearer ..."
+
+            HttpEntity<Void> entity = new HttpEntity<>(headers);
 
 
-        PedidoResponse pedido = restTemplate.getForObject(
-                pedidoServiceUrl + "/pedidos/" + request.getPedidoId(),
-                PedidoResponse.class
-        );
+            ResponseEntity<PedidoResponse> response = restTemplate.exchange(
+                    pedidoServiceUrl + "/pedidos/" + request.getPedidoId(),
+                    HttpMethod.GET,
+                    entity,
+                    PedidoResponse.class
+            );
 
-        if (pedido == null) {
-            return ResponseEntity.badRequest().build();
+            PedidoResponse pedido = response.getBody();
+            if (pedido == null) return ResponseEntity.badRequest().build();
+
+            Pagamento pagamento = processor.criarPagamento(request, pedido.getValorTotal());
+            PagamentoProcessadoEvent evento = processor.processar(pagamento, pedido.getValorTotal());
+
+            return ResponseEntity.ok(evento);
+
+        } catch (HttpClientErrorException.Forbidden e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-
-
-        Pagamento pagamento = processor.criarPagamento(request, pedido.getValorTotal());
-
-        PagamentoProcessadoEvent evento = processor.processar(pagamento, pedido.getValorTotal());
-
-        return ResponseEntity.ok(evento);
     }
 
     @GetMapping

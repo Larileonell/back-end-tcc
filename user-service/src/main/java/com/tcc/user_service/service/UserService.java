@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class UserService {
+
     private final UserRepository userRepository;
     private final Counter loginsCounter;
     private final Counter registersCounter;
@@ -25,6 +26,7 @@ public class UserService {
     }
 
     public User save(User user) {
+        // Aqui só salva o usuário (criptografia feita no controller)
         registersCounter.increment();
         return userRepository.save(user);
     }

@@ -28,7 +28,7 @@ public class PedidoController {
     @PostMapping
     public ResponseEntity<Pedido> criarPedido(@RequestBody Pedido pedido) {
         Pedido novoPedido = pedidoService.create(pedido);
-        publisher.publishPedidoCriado(novoPedido); // publica no Kafka e RabbitMQ
+        publisher.publishPedidoCriado(novoPedido);
         return ResponseEntity.ok(novoPedido);
     }
 
