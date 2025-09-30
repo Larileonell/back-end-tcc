@@ -21,15 +21,10 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-
                         .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-
-                        .requestMatchers("/actuator", "/actuator/**").permitAll()
-
+                        .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/auth/**").permitAll()
-
                         .requestMatchers("/pedidos/**").authenticated()
-
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -42,8 +37,6 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-
 
 
 

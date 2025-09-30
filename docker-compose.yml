@@ -130,13 +130,15 @@ services:
     ports:
       - "8085:8085"
     environment:
+      - SPRING_PROFILES_ACTIVE=docker
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-user:5432/userdb
       - SPRING_DATASOURCE_USERNAME=user
       - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - SPRING_JPA_SHOW_SQL=true
-      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
-      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
+      - JWT_SECRET=meusegredojwt123
+      - JWT_EXPIRATION=86400000
+      - SERVER_SSL_ENABLED=true
+      - SERVER_SSL_KEYSTORE=classpath:keystore/user-service.p12
+      - SERVER_SSL_KEYSTORE_PASSWORD=senha123
 
   produto-service:
     build: ./produto-service
@@ -146,13 +148,15 @@ services:
     ports:
       - "8086:8086"
     environment:
+      - SPRING_PROFILES_ACTIVE=docker
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-produto:5432/produtodb
       - SPRING_DATASOURCE_USERNAME=produto
       - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - SPRING_JPA_SHOW_SQL=true
-      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
-      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
+      - JWT_SECRET=meusegredojwt123
+      - JWT_EXPIRATION=86400000
+      - SERVER_SSL_ENABLED=true
+      - SERVER_SSL_KEYSTORE=classpath:keystore/produto-service.p12
+      - SERVER_SSL_KEYSTORE_PASSWORD=senha123
 
   pedido-service:
     build: ./pedido-service
@@ -164,18 +168,15 @@ services:
     ports:
       - "8087:8087"
     environment:
+      - SPRING_PROFILES_ACTIVE=docker
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-pedido:5432/pedidodb
       - SPRING_DATASOURCE_USERNAME=pedido
       - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - SPRING_JPA_SHOW_SQL=true
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - SPRING_RABBITMQ_HOST=rabbitmq
-      - SPRING_RABBITMQ_PORT=5672
-      - SPRING_RABBITMQ_USERNAME=guest
-      - SPRING_RABBITMQ_PASSWORD=guest
-      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
-      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
+      - JWT_SECRET=meusegredojwt123
+      - JWT_EXPIRATION=86400000
+      - SERVER_SSL_ENABLED=true
+      - SERVER_SSL_KEYSTORE=classpath:keystore/pedido-service.p12
+      - SERVER_SSL_KEYSTORE_PASSWORD=senha123
 
   pagamento-service:
     build: ./pagamento-service
@@ -187,18 +188,15 @@ services:
     ports:
       - "8088:8088"
     environment:
+      - SPRING_PROFILES_ACTIVE=docker
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-pagamento:5432/pagamentodb
       - SPRING_DATASOURCE_USERNAME=pagamento
       - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - SPRING_JPA_SHOW_SQL=true
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - SPRING_RABBITMQ_HOST=rabbitmq
-      - SPRING_RABBITMQ_PORT=5672
-      - SPRING_RABBITMQ_USERNAME=guest
-      - SPRING_RABBITMQ_PASSWORD=guest
-      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
-      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
+      - JWT_SECRET=meusegredojwt123
+      - JWT_EXPIRATION=86400000
+      - SERVER_SSL_ENABLED=true
+      - SERVER_SSL_KEYSTORE=classpath:keystore/pagamento-service.p12
+      - SERVER_SSL_KEYSTORE_PASSWORD=senha123
 
   notification-service:
     build: ./notification-service
@@ -210,18 +208,10 @@ services:
     ports:
       - "8089:8089"
     environment:
+      - SPRING_PROFILES_ACTIVE=docker
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-notification:5432/notificationdb
       - SPRING_DATASOURCE_USERNAME=notification
       - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-      - SPRING_JPA_SHOW_SQL=true
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - SPRING_RABBITMQ_HOST=rabbitmq
-      - SPRING_RABBITMQ_PORT=5672
-      - SPRING_RABBITMQ_USERNAME=guest
-      - SPRING_RABBITMQ_PASSWORD=guest
-      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=*
-      - MANAGEMENT_ENDPOINTS_WEB_BASEPATH=/actuator
 
 # ------------------------
 # Volumes

@@ -1,0 +1,442 @@
+# HELP application_ready_time_seconds Time taken for the application to be ready to service requests
+# TYPE application_ready_time_seconds gauge
+application_ready_time_seconds{application="user-service",main_application_class="com.tcc.user_service.UserServiceApplication"} 50.082
+# HELP application_started_time_seconds Time taken to start the application
+# TYPE application_started_time_seconds gauge
+application_started_time_seconds{application="user-service",main_application_class="com.tcc.user_service.UserServiceApplication"} 49.694
+# HELP disk_free_bytes Usable space for path
+# TYPE disk_free_bytes gauge
+disk_free_bytes{application="user-service",path="/app/."} 1.014770343936E12
+# HELP disk_total_bytes Total space for path
+# TYPE disk_total_bytes gauge
+disk_total_bytes{application="user-service",path="/app/."} 1.081101176832E12
+# HELP executor_active_threads The approximate number of threads that are actively executing tasks
+# TYPE executor_active_threads gauge
+executor_active_threads{application="user-service",name="applicationTaskExecutor"} 0.0
+# HELP executor_completed_tasks_total The approximate total number of tasks that have completed execution
+# TYPE executor_completed_tasks_total counter
+executor_completed_tasks_total{application="user-service",name="applicationTaskExecutor"} 0.0
+# HELP executor_pool_core_threads The core number of threads for the pool
+# TYPE executor_pool_core_threads gauge
+executor_pool_core_threads{application="user-service",name="applicationTaskExecutor"} 8.0
+# HELP executor_pool_max_threads The maximum allowed number of threads in the pool
+# TYPE executor_pool_max_threads gauge
+executor_pool_max_threads{application="user-service",name="applicationTaskExecutor"} 2.147483647E9
+# HELP executor_pool_size_threads The current number of threads in the pool
+# TYPE executor_pool_size_threads gauge
+executor_pool_size_threads{application="user-service",name="applicationTaskExecutor"} 0.0
+# HELP executor_queue_remaining_tasks The number of additional elements that this queue can ideally accept without blocking
+# TYPE executor_queue_remaining_tasks gauge
+executor_queue_remaining_tasks{application="user-service",name="applicationTaskExecutor"} 2.147483647E9
+# HELP executor_queued_tasks The approximate number of tasks that are queued for execution
+# TYPE executor_queued_tasks gauge
+executor_queued_tasks{application="user-service",name="applicationTaskExecutor"} 0.0
+# HELP hikaricp_connections Total connections
+# TYPE hikaricp_connections gauge
+hikaricp_connections{application="user-service",pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_acquire_seconds Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds summary
+hikaricp_connections_acquire_seconds_count{application="user-service",pool="HikariPool-1"} 7852
+hikaricp_connections_acquire_seconds_sum{application="user-service",pool="HikariPool-1"} 27819.025500321
+# HELP hikaricp_connections_acquire_seconds_max Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds_max gauge
+hikaricp_connections_acquire_seconds_max{application="user-service",pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_active Active connections
+# TYPE hikaricp_connections_active gauge
+hikaricp_connections_active{application="user-service",pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_creation_seconds Connection creation time
+# TYPE hikaricp_connections_creation_seconds summary
+hikaricp_connections_creation_seconds_count{application="user-service",pool="HikariPool-1"} 80
+hikaricp_connections_creation_seconds_sum{application="user-service",pool="HikariPool-1"} 104.076
+# HELP hikaricp_connections_creation_seconds_max Connection creation time
+# TYPE hikaricp_connections_creation_seconds_max gauge
+hikaricp_connections_creation_seconds_max{application="user-service",pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_idle Idle connections
+# TYPE hikaricp_connections_idle gauge
+hikaricp_connections_idle{application="user-service",pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_max Max connections
+# TYPE hikaricp_connections_max gauge
+hikaricp_connections_max{application="user-service",pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_min Min connections
+# TYPE hikaricp_connections_min gauge
+hikaricp_connections_min{application="user-service",pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_pending Pending threads
+# TYPE hikaricp_connections_pending gauge
+hikaricp_connections_pending{application="user-service",pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_timeout_total Connection timeout total count
+# TYPE hikaricp_connections_timeout_total counter
+hikaricp_connections_timeout_total{application="user-service",pool="HikariPool-1"} 214.0
+# HELP hikaricp_connections_usage_seconds Connection usage time
+# TYPE hikaricp_connections_usage_seconds summary
+hikaricp_connections_usage_seconds_count{application="user-service",pool="HikariPool-1"} 7638
+hikaricp_connections_usage_seconds_sum{application="user-service",pool="HikariPool-1"} 9991.906
+# HELP hikaricp_connections_usage_seconds_max Connection usage time
+# TYPE hikaricp_connections_usage_seconds_max gauge
+hikaricp_connections_usage_seconds_max{application="user-service",pool="HikariPool-1"} 0.0
+# HELP http_server_requests_active_seconds  
+# TYPE http_server_requests_active_seconds summary
+http_server_requests_active_seconds_count{application="user-service",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 1
+http_server_requests_active_seconds_sum{application="user-service",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.002408096
+http_server_requests_active_seconds_count{application="user-service",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0
+http_server_requests_active_seconds_sum{application="user-service",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+# HELP http_server_requests_active_seconds_max  
+# TYPE http_server_requests_active_seconds_max gauge
+http_server_requests_active_seconds_max{application="user-service",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.002408496
+http_server_requests_active_seconds_max{application="user-service",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+# HELP http_server_requests_seconds  
+# TYPE http_server_requests_seconds summary
+http_server_requests_seconds_count{application="user-service",error="DataAccessResourceFailureException",exception="DataAccessResourceFailureException",method="POST",outcome="SERVER_ERROR",status="500",uri="/auth/login"} 214
+http_server_requests_seconds_sum{application="user-service",error="DataAccessResourceFailureException",exception="DataAccessResourceFailureException",method="POST",outcome="SERVER_ERROR",status="500",uri="/auth/login"} 14126.54485255
+http_server_requests_seconds_count{application="user-service",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 64
+http_server_requests_seconds_sum{application="user-service",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 308.358038341
+http_server_requests_seconds_count{application="user-service",error="RequestRejectedException",exception="RequestRejectedException",method="GET",outcome="CLIENT_ERROR",status="400",uri="UNKNOWN"} 2
+http_server_requests_seconds_sum{application="user-service",error="RequestRejectedException",exception="RequestRejectedException",method="GET",outcome="CLIENT_ERROR",status="400",uri="UNKNOWN"} 0.137150825
+http_server_requests_seconds_count{application="user-service",error="RuntimeException",exception="RuntimeException",method="POST",outcome="SERVER_ERROR",status="500",uri="/auth/login"} 231
+http_server_requests_seconds_sum{application="user-service",error="RuntimeException",exception="RuntimeException",method="POST",outcome="SERVER_ERROR",status="500",uri="/auth/login"} 1.337965911
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN"} 2
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN"} 0.008847116
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="GET",outcome="REDIRECTION",status="302",uri="/swagger-ui.html"} 1
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="GET",outcome="REDIRECTION",status="302",uri="/swagger-ui.html"} 0.067549589
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 2616
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 52.973057137
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/**"} 6
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/**"} 0.075913222
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/*swagger-initializer.js"} 1
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/*swagger-initializer.js"} 0.069021741
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs"} 1
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs"} 0.67166022
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs/swagger-config"} 1
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs/swagger-config"} 0.028547977
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/auth/login"} 7406
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/auth/login"} 32920.919714114
+http_server_requests_seconds_count{application="user-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/auth/register"} 1
+http_server_requests_seconds_sum{application="user-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/auth/register"} 0.825723635
+# HELP http_server_requests_seconds_max  
+# TYPE http_server_requests_seconds_max gauge
+http_server_requests_seconds_max{application="user-service",error="DataAccessResourceFailureException",exception="DataAccessResourceFailureException",method="POST",outcome="SERVER_ERROR",status="500",uri="/auth/login"} 0.0
+http_server_requests_seconds_max{application="user-service",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 0.0
+http_server_requests_seconds_max{application="user-service",error="RequestRejectedException",exception="RequestRejectedException",method="GET",outcome="CLIENT_ERROR",status="400",uri="UNKNOWN"} 0.0
+http_server_requests_seconds_max{application="user-service",error="RuntimeException",exception="RuntimeException",method="POST",outcome="SERVER_ERROR",status="500",uri="/auth/login"} 0.0
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN"} 0.0
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="GET",outcome="REDIRECTION",status="302",uri="/swagger-ui.html"} 0.0
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 0.011893591
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/**"} 0.0
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/*swagger-initializer.js"} 0.0
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs"} 0.0
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs/swagger-config"} 0.0
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/auth/login"} 0.0
+http_server_requests_seconds_max{application="user-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/auth/register"} 0.0
+# HELP jdbc_connections_active Current number of active connections that have been allocated from the data source.
+# TYPE jdbc_connections_active gauge
+jdbc_connections_active{application="user-service",name="dataSource"} 0.0
+# HELP jdbc_connections_idle Number of established but idle connections.
+# TYPE jdbc_connections_idle gauge
+jdbc_connections_idle{application="user-service",name="dataSource"} 10.0
+# HELP jdbc_connections_max Maximum number of active connections that can be allocated at the same time.
+# TYPE jdbc_connections_max gauge
+jdbc_connections_max{application="user-service",name="dataSource"} 10.0
+# HELP jdbc_connections_min Minimum number of idle connections in the pool.
+# TYPE jdbc_connections_min gauge
+jdbc_connections_min{application="user-service",name="dataSource"} 10.0
+# HELP jvm_info JVM version info
+# TYPE jvm_info gauge
+jvm_info{application="user-service",runtime="OpenJDK Runtime Environment",vendor="Eclipse Adoptium",version="17.0.16+8"} 1
+# HELP jvm_buffer_count_buffers An estimate of the number of buffers in the pool
+# TYPE jvm_buffer_count_buffers gauge
+jvm_buffer_count_buffers{application="user-service",id="direct"} 13.0
+jvm_buffer_count_buffers{application="user-service",id="mapped"} 0.0
+jvm_buffer_count_buffers{application="user-service",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
+# TYPE jvm_buffer_memory_used_bytes gauge
+jvm_buffer_memory_used_bytes{application="user-service",id="direct"} 108544.0
+jvm_buffer_memory_used_bytes{application="user-service",id="mapped"} 0.0
+jvm_buffer_memory_used_bytes{application="user-service",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_total_capacity_bytes An estimate of the total capacity of the buffers in this pool
+# TYPE jvm_buffer_total_capacity_bytes gauge
+jvm_buffer_total_capacity_bytes{application="user-service",id="direct"} 108544.0
+jvm_buffer_total_capacity_bytes{application="user-service",id="mapped"} 0.0
+jvm_buffer_total_capacity_bytes{application="user-service",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_classes_loaded_classes The number of classes that are currently loaded in the Java virtual machine
+# TYPE jvm_classes_loaded_classes gauge
+jvm_classes_loaded_classes{application="user-service"} 17288.0
+# HELP jvm_classes_unloaded_classes_total The number of classes unloaded in the Java virtual machine
+# TYPE jvm_classes_unloaded_classes_total counter
+jvm_classes_unloaded_classes_total{application="user-service"} 150.0
+# HELP jvm_compilation_time_ms_total The approximate accumulated elapsed time spent in compilation
+# TYPE jvm_compilation_time_ms_total counter
+jvm_compilation_time_ms_total{application="user-service",compiler="HotSpot 64-Bit Tiered Compilers"} 1181719.0
+# HELP jvm_gc_live_data_size_bytes Size of long-lived heap memory pool after reclamation
+# TYPE jvm_gc_live_data_size_bytes gauge
+jvm_gc_live_data_size_bytes{application="user-service"} 4.7740928E7
+# HELP jvm_gc_max_data_size_bytes Max size of long-lived heap memory pool
+# TYPE jvm_gc_max_data_size_bytes gauge
+jvm_gc_max_data_size_bytes{application="user-service"} 2.067791872E9
+# HELP jvm_gc_memory_allocated_bytes_total Incremented for an increase in the size of the (young) heap memory pool after one GC to before the next
+# TYPE jvm_gc_memory_allocated_bytes_total counter
+jvm_gc_memory_allocated_bytes_total{application="user-service"} 4.223664096E9
+# HELP jvm_gc_memory_promoted_bytes_total Count of positive increases in the size of the old generation memory pool before GC to after GC
+# TYPE jvm_gc_memory_promoted_bytes_total counter
+jvm_gc_memory_promoted_bytes_total{application="user-service"} 5.8192384E7
+# HELP jvm_gc_overhead An approximation of the percent of CPU time used by GC activities over the last lookback period or since monitoring began, whichever is shorter, in the range [0..1]
+# TYPE jvm_gc_overhead gauge
+jvm_gc_overhead{application="user-service"} 1.0E-5
+# HELP jvm_gc_pause_seconds Time spent in GC pause
+# TYPE jvm_gc_pause_seconds summary
+jvm_gc_pause_seconds_count{action="end of minor GC",application="user-service",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 113
+jvm_gc_pause_seconds_sum{action="end of minor GC",application="user-service",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 79.484
+# HELP jvm_gc_pause_seconds_max Time spent in GC pause
+# TYPE jvm_gc_pause_seconds_max gauge
+jvm_gc_pause_seconds_max{action="end of minor GC",application="user-service",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 0.003
+# HELP jvm_memory_committed_bytes The amount of memory in bytes that is committed for the Java virtual machine to use
+# TYPE jvm_memory_committed_bytes gauge
+jvm_memory_committed_bytes{application="user-service",area="heap",id="G1 Eden Space"} 5.0331648E7
+jvm_memory_committed_bytes{application="user-service",area="heap",id="G1 Old Gen"} 9.84612864E8
+jvm_memory_committed_bytes{application="user-service",area="heap",id="G1 Survivor Space"} 4194304.0
+jvm_memory_committed_bytes{application="user-service",area="nonheap",id="CodeHeap 'non-nmethods'"} 2555904.0
+jvm_memory_committed_bytes{application="user-service",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.4548992E7
+jvm_memory_committed_bytes{application="user-service",area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.4772608E7
+jvm_memory_committed_bytes{application="user-service",area="nonheap",id="Compressed Class Space"} 1.212416E7
+jvm_memory_committed_bytes{application="user-service",area="nonheap",id="Metaspace"} 9.0374144E7
+# HELP jvm_memory_max_bytes The maximum amount of memory in bytes that can be used for memory management
+# TYPE jvm_memory_max_bytes gauge
+jvm_memory_max_bytes{application="user-service",area="heap",id="G1 Eden Space"} -1.0
+jvm_memory_max_bytes{application="user-service",area="heap",id="G1 Old Gen"} 2.067791872E9
+jvm_memory_max_bytes{application="user-service",area="heap",id="G1 Survivor Space"} -1.0
+jvm_memory_max_bytes{application="user-service",area="nonheap",id="CodeHeap 'non-nmethods'"} 5836800.0
+jvm_memory_max_bytes{application="user-service",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.22912768E8
+jvm_memory_max_bytes{application="user-service",area="nonheap",id="CodeHeap 'profiled nmethods'"} 1.22908672E8
+jvm_memory_max_bytes{application="user-service",area="nonheap",id="Compressed Class Space"} 1.073741824E9
+jvm_memory_max_bytes{application="user-service",area="nonheap",id="Metaspace"} -1.0
+# HELP jvm_memory_usage_after_gc The percentage of long-lived heap pool used after the last GC event, in the range [0..1]
+# TYPE jvm_memory_usage_after_gc gauge
+jvm_memory_usage_after_gc{application="user-service",area="heap",pool="long-lived"} 0.035774029776242396
+# HELP jvm_memory_used_bytes The amount of used memory
+# TYPE jvm_memory_used_bytes gauge
+jvm_memory_used_bytes{application="user-service",area="heap",id="G1 Eden Space"} 1.7825792E7
+jvm_memory_used_bytes{application="user-service",area="heap",id="G1 Old Gen"} 7.3973248E7
+jvm_memory_used_bytes{application="user-service",area="heap",id="G1 Survivor Space"} 3507664.0
+jvm_memory_used_bytes{application="user-service",area="nonheap",id="CodeHeap 'non-nmethods'"} 1396736.0
+jvm_memory_used_bytes{application="user-service",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.4205056E7
+jvm_memory_used_bytes{application="user-service",area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.1893376E7
+jvm_memory_used_bytes{application="user-service",area="nonheap",id="Compressed Class Space"} 1.1779104E7
+jvm_memory_used_bytes{application="user-service",area="nonheap",id="Metaspace"} 8.9624104E7
+# HELP jvm_threads_daemon_threads The current number of live daemon threads
+# TYPE jvm_threads_daemon_threads gauge
+jvm_threads_daemon_threads{application="user-service"} 21.0
+# HELP jvm_threads_live_threads The current number of live threads including both daemon and non-daemon threads
+# TYPE jvm_threads_live_threads gauge
+jvm_threads_live_threads{application="user-service"} 25.0
+# HELP jvm_threads_peak_threads The peak live thread count since the Java virtual machine started or peak was reset
+# TYPE jvm_threads_peak_threads gauge
+jvm_threads_peak_threads{application="user-service"} 167.0
+# HELP jvm_threads_started_threads_total The total number of application threads started in the JVM
+# TYPE jvm_threads_started_threads_total counter
+jvm_threads_started_threads_total{application="user-service"} 519.0
+# HELP jvm_threads_states_threads The current number of threads
+# TYPE jvm_threads_states_threads gauge
+jvm_threads_states_threads{application="user-service",state="blocked"} 0.0
+jvm_threads_states_threads{application="user-service",state="new"} 0.0
+jvm_threads_states_threads{application="user-service",state="runnable"} 7.0
+jvm_threads_states_threads{application="user-service",state="terminated"} 0.0
+jvm_threads_states_threads{application="user-service",state="timed-waiting"} 16.0
+jvm_threads_states_threads{application="user-service",state="waiting"} 2.0
+# HELP logback_events_total Number of log events that were enabled by the effective log level
+# TYPE logback_events_total counter
+logback_events_total{application="user-service",level="debug"} 0.0
+logback_events_total{application="user-service",level="error"} 659.0
+logback_events_total{application="user-service",level="info"} 6.0
+logback_events_total{application="user-service",level="trace"} 0.0
+logback_events_total{application="user-service",level="warn"} 218.0
+# HELP process_cpu_time_ns_total The "cpu time" used by the Java Virtual Machine process
+# TYPE process_cpu_time_ns_total counter
+process_cpu_time_ns_total{application="user-service"} 1.4444E12
+# HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
+# TYPE process_cpu_usage gauge
+process_cpu_usage{application="user-service"} 6.587615283267457E-4
+# HELP process_files_max_files The maximum file descriptor count
+# TYPE process_files_max_files gauge
+process_files_max_files{application="user-service"} 1048576.0
+# HELP process_files_open_files The open file descriptor count
+# TYPE process_files_open_files gauge
+process_files_open_files{application="user-service"} 24.0
+# HELP process_start_time_seconds Start time of the process since unix epoch.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds{application="user-service"} 1.759149768524E9
+# HELP process_uptime_seconds The uptime of the Java virtual machine
+# TYPE process_uptime_seconds gauge
+process_uptime_seconds{application="user-service"} 13579.958
+# HELP spring_data_repository_invocations_seconds Duration of repository invocations
+# TYPE spring_data_repository_invocations_seconds summary
+spring_data_repository_invocations_seconds_count{application="user-service",exception="JDBCConnectionException",method="findByUsername",repository="UserRepository",state="ERROR"} 214
+spring_data_repository_invocations_seconds_sum{application="user-service",exception="JDBCConnectionException",method="findByUsername",repository="UserRepository",state="ERROR"} 12955.746839215
+spring_data_repository_invocations_seconds_count{application="user-service",exception="None",method="findByUsername",repository="UserRepository",state="SUCCESS"} 7638
+spring_data_repository_invocations_seconds_sum{application="user-service",exception="None",method="findByUsername",repository="UserRepository",state="SUCCESS"} 22575.631725145
+spring_data_repository_invocations_seconds_count{application="user-service",exception="None",method="save",repository="UserRepository",state="SUCCESS"} 1
+spring_data_repository_invocations_seconds_sum{application="user-service",exception="None",method="save",repository="UserRepository",state="SUCCESS"} 0.208807374
+# HELP spring_data_repository_invocations_seconds_max Duration of repository invocations
+# TYPE spring_data_repository_invocations_seconds_max gauge
+spring_data_repository_invocations_seconds_max{application="user-service",exception="JDBCConnectionException",method="findByUsername",repository="UserRepository",state="ERROR"} 0.0
+spring_data_repository_invocations_seconds_max{application="user-service",exception="None",method="findByUsername",repository="UserRepository",state="SUCCESS"} 0.0
+spring_data_repository_invocations_seconds_max{application="user-service",exception="None",method="save",repository="UserRepository",state="SUCCESS"} 0.0
+# HELP spring_security_authorizations_active_seconds  
+# TYPE spring_security_authorizations_active_seconds summary
+spring_security_authorizations_active_seconds_count{application="user-service",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request"} 0
+spring_security_authorizations_active_seconds_sum{application="user-service",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request"} 0.0
+# HELP spring_security_authorizations_active_seconds_max  
+# TYPE spring_security_authorizations_active_seconds_max gauge
+spring_security_authorizations_active_seconds_max{application="user-service",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request"} 0.0
+# HELP spring_security_authorizations_seconds  
+# TYPE spring_security_authorizations_seconds summary
+spring_security_authorizations_seconds_count{application="user-service",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request"} 451
+spring_security_authorizations_seconds_sum{application="user-service",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request"} 4.770216675
+spring_security_authorizations_seconds_count{application="user-service",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request"} 10543
+spring_security_authorizations_seconds_sum{application="user-service",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request"} 8.506445981
+# HELP spring_security_authorizations_seconds_max  
+# TYPE spring_security_authorizations_seconds_max gauge
+spring_security_authorizations_seconds_max{application="user-service",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request"} 0.0
+spring_security_authorizations_seconds_max{application="user-service",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request"} 2.23312E-4
+# HELP spring_security_filterchains_JwtRequestFilter_after_total  
+# TYPE spring_security_filterchains_JwtRequestFilter_after_total counter
+spring_security_filterchains_JwtRequestFilter_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_JwtRequestFilter_before_total  
+# TYPE spring_security_filterchains_JwtRequestFilter_before_total counter
+spring_security_filterchains_JwtRequestFilter_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_access_exceptions_after_total  
+# TYPE spring_security_filterchains_access_exceptions_after_total counter
+spring_security_filterchains_access_exceptions_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_access_exceptions_before_total  
+# TYPE spring_security_filterchains_access_exceptions_before_total counter
+spring_security_filterchains_access_exceptions_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_active_seconds  
+# TYPE spring_security_filterchains_active_seconds summary
+spring_security_filterchains_active_seconds_count{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 0
+spring_security_filterchains_active_seconds_sum{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 0.0
+spring_security_filterchains_active_seconds_count{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 0
+spring_security_filterchains_active_seconds_sum{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 0.0
+# HELP spring_security_filterchains_active_seconds_max  
+# TYPE spring_security_filterchains_active_seconds_max gauge
+spring_security_filterchains_active_seconds_max{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 0.0
+spring_security_filterchains_active_seconds_max{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 0.0
+# HELP spring_security_filterchains_authentication_anonymous_after_total  
+# TYPE spring_security_filterchains_authentication_anonymous_after_total counter
+spring_security_filterchains_authentication_anonymous_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_authentication_anonymous_before_total  
+# TYPE spring_security_filterchains_authentication_anonymous_before_total counter
+spring_security_filterchains_authentication_anonymous_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_authorization_after_total  
+# TYPE spring_security_filterchains_authorization_after_total counter
+spring_security_filterchains_authorization_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10097.0
+# HELP spring_security_filterchains_authorization_before_total  
+# TYPE spring_security_filterchains_authorization_before_total counter
+spring_security_filterchains_authorization_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_context_async_after_total  
+# TYPE spring_security_filterchains_context_async_after_total counter
+spring_security_filterchains_context_async_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_context_async_before_total  
+# TYPE spring_security_filterchains_context_async_before_total counter
+spring_security_filterchains_context_async_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_context_holder_after_total  
+# TYPE spring_security_filterchains_context_holder_after_total counter
+spring_security_filterchains_context_holder_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_context_holder_before_total  
+# TYPE spring_security_filterchains_context_holder_before_total counter
+spring_security_filterchains_context_holder_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_context_servlet_after_total  
+# TYPE spring_security_filterchains_context_servlet_after_total counter
+spring_security_filterchains_context_servlet_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_context_servlet_before_total  
+# TYPE spring_security_filterchains_context_servlet_before_total counter
+spring_security_filterchains_context_servlet_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_header_after_total  
+# TYPE spring_security_filterchains_header_after_total counter
+spring_security_filterchains_header_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_header_before_total  
+# TYPE spring_security_filterchains_header_before_total counter
+spring_security_filterchains_header_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_logout_after_total  
+# TYPE spring_security_filterchains_logout_after_total counter
+spring_security_filterchains_logout_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_logout_before_total  
+# TYPE spring_security_filterchains_logout_before_total counter
+spring_security_filterchains_logout_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_requestcache_after_total  
+# TYPE spring_security_filterchains_requestcache_after_total counter
+spring_security_filterchains_requestcache_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_requestcache_before_total  
+# TYPE spring_security_filterchains_requestcache_before_total counter
+spring_security_filterchains_requestcache_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_seconds  
+# TYPE spring_security_filterchains_seconds summary
+spring_security_filterchains_seconds_count{application="user-service",error="ServletException",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 445
+spring_security_filterchains_seconds_sum{application="user-service",error="ServletException",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 66.427509758
+spring_security_filterchains_seconds_count{application="user-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="AuthorizationFilter",spring_security_reached_filter_section="before"} 10994
+spring_security_filterchains_seconds_sum{application="user-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="AuthorizationFilter",spring_security_reached_filter_section="before"} 354.80378452
+spring_security_filterchains_seconds_count{application="user-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="DisableEncodeUrlFilter",spring_security_reached_filter_section="after"} 10548
+spring_security_filterchains_seconds_sum{application="user-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="DisableEncodeUrlFilter",spring_security_reached_filter_section="after"} 87.391980197
+# HELP spring_security_filterchains_seconds_max  
+# TYPE spring_security_filterchains_seconds_max gauge
+spring_security_filterchains_seconds_max{application="user-service",error="ServletException",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 0.0
+spring_security_filterchains_seconds_max{application="user-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="AuthorizationFilter",spring_security_reached_filter_section="before"} 4.06021E-4
+spring_security_filterchains_seconds_max{application="user-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="DisableEncodeUrlFilter",spring_security_reached_filter_section="after"} 9.42747E-4
+# HELP spring_security_filterchains_session_management_after_total  
+# TYPE spring_security_filterchains_session_management_after_total counter
+spring_security_filterchains_session_management_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_session_management_before_total  
+# TYPE spring_security_filterchains_session_management_before_total counter
+spring_security_filterchains_session_management_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_filterchains_session_urlencoding_after_total  
+# TYPE spring_security_filterchains_session_urlencoding_after_total counter
+spring_security_filterchains_session_urlencoding_after_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 10548.0
+# HELP spring_security_filterchains_session_urlencoding_before_total  
+# TYPE spring_security_filterchains_session_urlencoding_before_total counter
+spring_security_filterchains_session_urlencoding_before_total{application="user-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 10994.0
+# HELP spring_security_http_secured_requests_active_seconds  
+# TYPE spring_security_http_secured_requests_active_seconds summary
+spring_security_http_secured_requests_active_seconds_count{application="user-service"} 1
+spring_security_http_secured_requests_active_seconds_sum{application="user-service"} 0.002407795
+# HELP spring_security_http_secured_requests_active_seconds_max  
+# TYPE spring_security_http_secured_requests_active_seconds_max gauge
+spring_security_http_secured_requests_active_seconds_max{application="user-service"} 0.002408495
+# HELP spring_security_http_secured_requests_seconds  
+# TYPE spring_security_http_secured_requests_seconds summary
+spring_security_http_secured_requests_seconds_count{application="user-service",error="ServletException"} 445
+spring_security_http_secured_requests_seconds_sum{application="user-service",error="ServletException"} 13643.485907792
+spring_security_http_secured_requests_seconds_count{application="user-service",error="none"} 10097
+spring_security_http_secured_requests_seconds_sum{application="user-service",error="none"} 32816.2252975
+# HELP spring_security_http_secured_requests_seconds_max  
+# TYPE spring_security_http_secured_requests_seconds_max gauge
+spring_security_http_secured_requests_seconds_max{application="user-service",error="ServletException"} 0.0
+spring_security_http_secured_requests_seconds_max{application="user-service",error="none"} 0.01092185
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge
+system_cpu_count{application="user-service"} 4.0
+# HELP system_cpu_usage The "recent cpu usage" of the system the application is running in
+# TYPE system_cpu_usage gauge
+system_cpu_usage{application="user-service"} 0.034916306559218915
+# HELP system_load_average_1m The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time
+# TYPE system_load_average_1m gauge
+system_load_average_1m{application="user-service"} 0.43701171875
+# HELP tomcat_sessions_active_current_sessions  
+# TYPE tomcat_sessions_active_current_sessions gauge
+tomcat_sessions_active_current_sessions{application="user-service"} 0.0
+# HELP tomcat_sessions_active_max_sessions  
+# TYPE tomcat_sessions_active_max_sessions gauge
+tomcat_sessions_active_max_sessions{application="user-service"} 0.0
+# HELP tomcat_sessions_alive_max_seconds  
+# TYPE tomcat_sessions_alive_max_seconds gauge
+tomcat_sessions_alive_max_seconds{application="user-service"} 0.0
+# HELP tomcat_sessions_created_sessions_total  
+# TYPE tomcat_sessions_created_sessions_total counter
+tomcat_sessions_created_sessions_total{application="user-service"} 0.0
+# HELP tomcat_sessions_expired_sessions_total  
+# TYPE tomcat_sessions_expired_sessions_total counter
+tomcat_sessions_expired_sessions_total{application="user-service"} 0.0
+# HELP tomcat_sessions_rejected_sessions_total  
+# TYPE tomcat_sessions_rejected_sessions_total counter
+tomcat_sessions_rejected_sessions_total{application="user-service"} 0.0
+# HELP user_logins_total  
+# TYPE user_logins_total counter
+user_logins_total{application="user-service"} 7406.0
+# HELP user_registers_total  
+# TYPE user_registers_total counter
+user_registers_total{application="user-service"} 1.0

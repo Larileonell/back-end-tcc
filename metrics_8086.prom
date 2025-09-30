@@ -1,0 +1,485 @@
+# HELP application_ready_time_seconds Time taken for the application to be ready to service requests
+# TYPE application_ready_time_seconds gauge
+application_ready_time_seconds{application="produto-service",main_application_class="com.tcc.produto_service.ProdutoServiceApplication"} 45.912
+# HELP application_started_time_seconds Time taken to start the application
+# TYPE application_started_time_seconds gauge
+application_started_time_seconds{application="produto-service",main_application_class="com.tcc.produto_service.ProdutoServiceApplication"} 45.55
+# HELP disk_free_bytes Usable space for path
+# TYPE disk_free_bytes gauge
+disk_free_bytes{application="produto-service",path="/app/."} 1.014770343936E12
+# HELP disk_total_bytes Total space for path
+# TYPE disk_total_bytes gauge
+disk_total_bytes{application="produto-service",path="/app/."} 1.081101176832E12
+# HELP executor_active_threads The approximate number of threads that are actively executing tasks
+# TYPE executor_active_threads gauge
+executor_active_threads{application="produto-service",name="applicationTaskExecutor"} 0.0
+# HELP executor_completed_tasks_total The approximate total number of tasks that have completed execution
+# TYPE executor_completed_tasks_total counter
+executor_completed_tasks_total{application="produto-service",name="applicationTaskExecutor"} 0.0
+# HELP executor_pool_core_threads The core number of threads for the pool
+# TYPE executor_pool_core_threads gauge
+executor_pool_core_threads{application="produto-service",name="applicationTaskExecutor"} 8.0
+# HELP executor_pool_max_threads The maximum allowed number of threads in the pool
+# TYPE executor_pool_max_threads gauge
+executor_pool_max_threads{application="produto-service",name="applicationTaskExecutor"} 2.147483647E9
+# HELP executor_pool_size_threads The current number of threads in the pool
+# TYPE executor_pool_size_threads gauge
+executor_pool_size_threads{application="produto-service",name="applicationTaskExecutor"} 0.0
+# HELP executor_queue_remaining_tasks The number of additional elements that this queue can ideally accept without blocking
+# TYPE executor_queue_remaining_tasks gauge
+executor_queue_remaining_tasks{application="produto-service",name="applicationTaskExecutor"} 2.147483647E9
+# HELP executor_queued_tasks The approximate number of tasks that are queued for execution
+# TYPE executor_queued_tasks gauge
+executor_queued_tasks{application="produto-service",name="applicationTaskExecutor"} 0.0
+# HELP hikaricp_connections Total connections
+# TYPE hikaricp_connections gauge
+hikaricp_connections{application="produto-service",pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_acquire_seconds Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds summary
+hikaricp_connections_acquire_seconds_count{application="produto-service",pool="HikariPool-1"} 15161
+hikaricp_connections_acquire_seconds_sum{application="produto-service",pool="HikariPool-1"} 18500.541466333
+# HELP hikaricp_connections_acquire_seconds_max Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds_max gauge
+hikaricp_connections_acquire_seconds_max{application="produto-service",pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_active Active connections
+# TYPE hikaricp_connections_active gauge
+hikaricp_connections_active{application="produto-service",pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_creation_seconds Connection creation time
+# TYPE hikaricp_connections_creation_seconds summary
+hikaricp_connections_creation_seconds_count{application="produto-service",pool="HikariPool-1"} 83
+hikaricp_connections_creation_seconds_sum{application="produto-service",pool="HikariPool-1"} 158.201
+# HELP hikaricp_connections_creation_seconds_max Connection creation time
+# TYPE hikaricp_connections_creation_seconds_max gauge
+hikaricp_connections_creation_seconds_max{application="produto-service",pool="HikariPool-1"} 0.016
+# HELP hikaricp_connections_idle Idle connections
+# TYPE hikaricp_connections_idle gauge
+hikaricp_connections_idle{application="produto-service",pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_max Max connections
+# TYPE hikaricp_connections_max gauge
+hikaricp_connections_max{application="produto-service",pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_min Min connections
+# TYPE hikaricp_connections_min gauge
+hikaricp_connections_min{application="produto-service",pool="HikariPool-1"} 10.0
+# HELP hikaricp_connections_pending Pending threads
+# TYPE hikaricp_connections_pending gauge
+hikaricp_connections_pending{application="produto-service",pool="HikariPool-1"} 0.0
+# HELP hikaricp_connections_timeout_total Connection timeout total count
+# TYPE hikaricp_connections_timeout_total counter
+hikaricp_connections_timeout_total{application="produto-service",pool="HikariPool-1"} 233.0
+# HELP hikaricp_connections_usage_seconds Connection usage time
+# TYPE hikaricp_connections_usage_seconds summary
+hikaricp_connections_usage_seconds_count{application="produto-service",pool="HikariPool-1"} 14928
+hikaricp_connections_usage_seconds_sum{application="produto-service",pool="HikariPool-1"} 5377.518
+# HELP hikaricp_connections_usage_seconds_max Connection usage time
+# TYPE hikaricp_connections_usage_seconds_max gauge
+hikaricp_connections_usage_seconds_max{application="produto-service",pool="HikariPool-1"} 0.0
+# HELP http_server_requests_active_seconds  
+# TYPE http_server_requests_active_seconds summary
+http_server_requests_active_seconds_count{application="produto-service",exception="none",method="DELETE",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0
+http_server_requests_active_seconds_sum{application="produto-service",exception="none",method="DELETE",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+http_server_requests_active_seconds_count{application="produto-service",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 1
+http_server_requests_active_seconds_sum{application="produto-service",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.002750109
+http_server_requests_active_seconds_count{application="produto-service",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0
+http_server_requests_active_seconds_sum{application="produto-service",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+http_server_requests_active_seconds_count{application="produto-service",exception="none",method="PUT",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0
+http_server_requests_active_seconds_sum{application="produto-service",exception="none",method="PUT",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+# HELP http_server_requests_active_seconds_max  
+# TYPE http_server_requests_active_seconds_max gauge
+http_server_requests_active_seconds_max{application="produto-service",exception="none",method="DELETE",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+http_server_requests_active_seconds_max{application="produto-service",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.00275211
+http_server_requests_active_seconds_max{application="produto-service",exception="none",method="POST",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+http_server_requests_active_seconds_max{application="produto-service",exception="none",method="PUT",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0.0
+# HELP http_server_requests_seconds  
+# TYPE http_server_requests_seconds summary
+http_server_requests_seconds_count{application="produto-service",error="CannotCreateTransactionException",exception="CannotCreateTransactionException",method="GET",outcome="SERVER_ERROR",status="500",uri="/produtos"} 121
+http_server_requests_seconds_sum{application="produto-service",error="CannotCreateTransactionException",exception="CannotCreateTransactionException",method="GET",outcome="SERVER_ERROR",status="500",uri="/produtos"} 4643.368881598
+http_server_requests_seconds_count{application="produto-service",error="CannotCreateTransactionException",exception="CannotCreateTransactionException",method="POST",outcome="SERVER_ERROR",status="500",uri="/produtos"} 112
+http_server_requests_seconds_sum{application="produto-service",error="CannotCreateTransactionException",exception="CannotCreateTransactionException",method="POST",outcome="SERVER_ERROR",status="500",uri="/produtos"} 4367.64912618
+http_server_requests_seconds_count{application="produto-service",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 51
+http_server_requests_seconds_sum{application="produto-service",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 292.635955604
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="DELETE",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 199
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="DELETE",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 1.007158211
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="DELETE",outcome="SUCCESS",status="204",uri="/produtos/{id}"} 1
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="DELETE",outcome="SUCCESS",status="204",uri="/produtos/{id}"} 0.049712744
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/produtos"} 168
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/produtos"} 429.98635806
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN"} 2
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN"} 0.010937993
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="404",uri="/**"} 200
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="404",uri="/**"} 0.84051509
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 199
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 1.035584687
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="REDIRECTION",status="302",uri="/swagger-ui.html"} 1
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="REDIRECTION",status="302",uri="/swagger-ui.html"} 0.114390493
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 2649
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 67.698206794
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/produtos"} 7158
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/produtos"} 10585.390778795
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/produtos/{id}"} 3
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/produtos/{id}"} 0.074100043
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/**"} 6
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/**"} 0.167944954
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/*swagger-initializer.js"} 1
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/*swagger-initializer.js"} 0.115979196
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs"} 1
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs"} 0.711083258
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs/swagger-config"} 1
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs/swagger-config"} 0.029508908
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="POST",outcome="CLIENT_ERROR",status="403",uri="/produtos"} 194
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="POST",outcome="CLIENT_ERROR",status="403",uri="/produtos"} 563.021906797
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/produtos"} 7168
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/produtos"} 9088.132885102
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="PUT",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 199
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="PUT",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 1.025924551
+http_server_requests_seconds_count{application="produto-service",error="none",exception="none",method="PUT",outcome="SUCCESS",status="200",uri="/produtos/{id}"} 1
+http_server_requests_seconds_sum{application="produto-service",error="none",exception="none",method="PUT",outcome="SUCCESS",status="200",uri="/produtos/{id}"} 0.160368889
+# HELP http_server_requests_seconds_max  
+# TYPE http_server_requests_seconds_max gauge
+http_server_requests_seconds_max{application="produto-service",error="CannotCreateTransactionException",exception="CannotCreateTransactionException",method="GET",outcome="SERVER_ERROR",status="500",uri="/produtos"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="CannotCreateTransactionException",exception="CannotCreateTransactionException",method="POST",outcome="SERVER_ERROR",status="500",uri="/produtos"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="DELETE",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="DELETE",outcome="SUCCESS",status="204",uri="/produtos/{id}"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/produtos"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="404",uri="/**"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="REDIRECTION",status="302",uri="/swagger-ui.html"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus"} 0.013312254
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/produtos"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/produtos/{id}"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/**"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/swagger-ui*/*swagger-initializer.js"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/v3/api-docs/swagger-config"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="POST",outcome="CLIENT_ERROR",status="403",uri="/produtos"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="POST",outcome="SUCCESS",status="200",uri="/produtos"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="PUT",outcome="CLIENT_ERROR",status="404",uri="/produtos/{id}"} 0.0
+http_server_requests_seconds_max{application="produto-service",error="none",exception="none",method="PUT",outcome="SUCCESS",status="200",uri="/produtos/{id}"} 0.0
+# HELP jdbc_connections_active Current number of active connections that have been allocated from the data source.
+# TYPE jdbc_connections_active gauge
+jdbc_connections_active{application="produto-service",name="dataSource"} 0.0
+# HELP jdbc_connections_idle Number of established but idle connections.
+# TYPE jdbc_connections_idle gauge
+jdbc_connections_idle{application="produto-service",name="dataSource"} 10.0
+# HELP jdbc_connections_max Maximum number of active connections that can be allocated at the same time.
+# TYPE jdbc_connections_max gauge
+jdbc_connections_max{application="produto-service",name="dataSource"} 10.0
+# HELP jdbc_connections_min Minimum number of idle connections in the pool.
+# TYPE jdbc_connections_min gauge
+jdbc_connections_min{application="produto-service",name="dataSource"} 10.0
+# HELP jvm_info JVM version info
+# TYPE jvm_info gauge
+jvm_info{application="produto-service",runtime="OpenJDK Runtime Environment",vendor="Eclipse Adoptium",version="17.0.16+8"} 1
+# HELP jvm_buffer_count_buffers An estimate of the number of buffers in the pool
+# TYPE jvm_buffer_count_buffers gauge
+jvm_buffer_count_buffers{application="produto-service",id="direct"} 13.0
+jvm_buffer_count_buffers{application="produto-service",id="mapped"} 0.0
+jvm_buffer_count_buffers{application="produto-service",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
+# TYPE jvm_buffer_memory_used_bytes gauge
+jvm_buffer_memory_used_bytes{application="produto-service",id="direct"} 108544.0
+jvm_buffer_memory_used_bytes{application="produto-service",id="mapped"} 0.0
+jvm_buffer_memory_used_bytes{application="produto-service",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_total_capacity_bytes An estimate of the total capacity of the buffers in this pool
+# TYPE jvm_buffer_total_capacity_bytes gauge
+jvm_buffer_total_capacity_bytes{application="produto-service",id="direct"} 108544.0
+jvm_buffer_total_capacity_bytes{application="produto-service",id="mapped"} 0.0
+jvm_buffer_total_capacity_bytes{application="produto-service",id="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_classes_loaded_classes The number of classes that are currently loaded in the Java virtual machine
+# TYPE jvm_classes_loaded_classes gauge
+jvm_classes_loaded_classes{application="produto-service"} 17391.0
+# HELP jvm_classes_unloaded_classes_total The number of classes unloaded in the Java virtual machine
+# TYPE jvm_classes_unloaded_classes_total counter
+jvm_classes_unloaded_classes_total{application="produto-service"} 0.0
+# HELP jvm_compilation_time_ms_total The approximate accumulated elapsed time spent in compilation
+# TYPE jvm_compilation_time_ms_total counter
+jvm_compilation_time_ms_total{application="produto-service",compiler="HotSpot 64-Bit Tiered Compilers"} 425189.0
+# HELP jvm_gc_live_data_size_bytes Size of long-lived heap memory pool after reclamation
+# TYPE jvm_gc_live_data_size_bytes gauge
+jvm_gc_live_data_size_bytes{application="produto-service"} 0.0
+# HELP jvm_gc_max_data_size_bytes Max size of long-lived heap memory pool
+# TYPE jvm_gc_max_data_size_bytes gauge
+jvm_gc_max_data_size_bytes{application="produto-service"} 2.067791872E9
+# HELP jvm_gc_memory_allocated_bytes_total Incremented for an increase in the size of the (young) heap memory pool after one GC to before the next
+# TYPE jvm_gc_memory_allocated_bytes_total counter
+jvm_gc_memory_allocated_bytes_total{application="produto-service"} 3.2298237864E10
+# HELP jvm_gc_memory_promoted_bytes_total Count of positive increases in the size of the old generation memory pool before GC to after GC
+# TYPE jvm_gc_memory_promoted_bytes_total counter
+jvm_gc_memory_promoted_bytes_total{application="produto-service"} 7.37289216E8
+# HELP jvm_gc_overhead An approximation of the percent of CPU time used by GC activities over the last lookback period or since monitoring began, whichever is shorter, in the range [0..1]
+# TYPE jvm_gc_overhead gauge
+jvm_gc_overhead{application="produto-service"} 0.0
+# HELP jvm_gc_pause_seconds Time spent in GC pause
+# TYPE jvm_gc_pause_seconds summary
+jvm_gc_pause_seconds_count{action="end of minor GC",application="produto-service",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 368
+jvm_gc_pause_seconds_sum{action="end of minor GC",application="produto-service",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 262.193
+jvm_gc_pause_seconds_count{action="end of minor GC",application="produto-service",cause="GCLocker Initiated GC",gc="G1 Young Generation"} 1
+jvm_gc_pause_seconds_sum{action="end of minor GC",application="produto-service",cause="GCLocker Initiated GC",gc="G1 Young Generation"} 0.144
+# HELP jvm_gc_pause_seconds_max Time spent in GC pause
+# TYPE jvm_gc_pause_seconds_max gauge
+jvm_gc_pause_seconds_max{action="end of minor GC",application="produto-service",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 0.0
+jvm_gc_pause_seconds_max{action="end of minor GC",application="produto-service",cause="GCLocker Initiated GC",gc="G1 Young Generation"} 0.0
+# HELP jvm_memory_committed_bytes The amount of memory in bytes that is committed for the Java virtual machine to use
+# TYPE jvm_memory_committed_bytes gauge
+jvm_memory_committed_bytes{application="produto-service",area="heap",id="G1 Eden Space"} 1.06954752E8
+jvm_memory_committed_bytes{application="produto-service",area="heap",id="G1 Old Gen"} 1.958739968E9
+jvm_memory_committed_bytes{application="produto-service",area="heap",id="G1 Survivor Space"} 1048576.0
+jvm_memory_committed_bytes{application="produto-service",area="nonheap",id="CodeHeap 'non-nmethods'"} 2555904.0
+jvm_memory_committed_bytes{application="produto-service",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.7301504E7
+jvm_memory_committed_bytes{application="produto-service",area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.5100288E7
+jvm_memory_committed_bytes{application="produto-service",area="nonheap",id="Compressed Class Space"} 1.2189696E7
+jvm_memory_committed_bytes{application="produto-service",area="nonheap",id="Metaspace"} 9.1553792E7
+# HELP jvm_memory_max_bytes The maximum amount of memory in bytes that can be used for memory management
+# TYPE jvm_memory_max_bytes gauge
+jvm_memory_max_bytes{application="produto-service",area="heap",id="G1 Eden Space"} -1.0
+jvm_memory_max_bytes{application="produto-service",area="heap",id="G1 Old Gen"} 2.067791872E9
+jvm_memory_max_bytes{application="produto-service",area="heap",id="G1 Survivor Space"} -1.0
+jvm_memory_max_bytes{application="produto-service",area="nonheap",id="CodeHeap 'non-nmethods'"} 5836800.0
+jvm_memory_max_bytes{application="produto-service",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.22912768E8
+jvm_memory_max_bytes{application="produto-service",area="nonheap",id="CodeHeap 'profiled nmethods'"} 1.22908672E8
+jvm_memory_max_bytes{application="produto-service",area="nonheap",id="Compressed Class Space"} 1.073741824E9
+jvm_memory_max_bytes{application="produto-service",area="nonheap",id="Metaspace"} -1.0
+# HELP jvm_memory_usage_after_gc The percentage of long-lived heap pool used after the last GC event, in the range [0..1]
+# TYPE jvm_memory_usage_after_gc gauge
+jvm_memory_usage_after_gc{application="produto-service",area="heap",pool="long-lived"} 0.3684621814781947
+# HELP jvm_memory_used_bytes The amount of used memory
+# TYPE jvm_memory_used_bytes gauge
+jvm_memory_used_bytes{application="produto-service",area="heap",id="G1 Eden Space"} 9.437184E7
+jvm_memory_used_bytes{application="produto-service",area="heap",id="G1 Old Gen"} 7.61903104E8
+jvm_memory_used_bytes{application="produto-service",area="heap",id="G1 Survivor Space"} 943048.0
+jvm_memory_used_bytes{application="produto-service",area="nonheap",id="CodeHeap 'non-nmethods'"} 1402752.0
+jvm_memory_used_bytes{application="produto-service",area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.7277696E7
+jvm_memory_used_bytes{application="produto-service",area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.3475968E7
+jvm_memory_used_bytes{application="produto-service",area="nonheap",id="Compressed Class Space"} 1.1800608E7
+jvm_memory_used_bytes{application="produto-service",area="nonheap",id="Metaspace"} 9.0761464E7
+# HELP jvm_threads_daemon_threads The current number of live daemon threads
+# TYPE jvm_threads_daemon_threads gauge
+jvm_threads_daemon_threads{application="produto-service"} 21.0
+# HELP jvm_threads_live_threads The current number of live threads including both daemon and non-daemon threads
+# TYPE jvm_threads_live_threads gauge
+jvm_threads_live_threads{application="produto-service"} 25.0
+# HELP jvm_threads_peak_threads The peak live thread count since the Java virtual machine started or peak was reset
+# TYPE jvm_threads_peak_threads gauge
+jvm_threads_peak_threads{application="produto-service"} 126.0
+# HELP jvm_threads_started_threads_total The total number of application threads started in the JVM
+# TYPE jvm_threads_started_threads_total counter
+jvm_threads_started_threads_total{application="produto-service"} 357.0
+# HELP jvm_threads_states_threads The current number of threads
+# TYPE jvm_threads_states_threads gauge
+jvm_threads_states_threads{application="produto-service",state="blocked"} 0.0
+jvm_threads_states_threads{application="produto-service",state="new"} 0.0
+jvm_threads_states_threads{application="produto-service",state="runnable"} 7.0
+jvm_threads_states_threads{application="produto-service",state="terminated"} 0.0
+jvm_threads_states_threads{application="produto-service",state="timed-waiting"} 16.0
+jvm_threads_states_threads{application="produto-service",state="waiting"} 2.0
+# HELP logback_events_total Number of log events that were enabled by the effective log level
+# TYPE logback_events_total counter
+logback_events_total{application="produto-service",level="debug"} 0.0
+logback_events_total{application="produto-service",level="error"} 466.0
+logback_events_total{application="produto-service",level="info"} 6.0
+logback_events_total{application="produto-service",level="trace"} 0.0
+logback_events_total{application="produto-service",level="warn"} 234.0
+# HELP process_cpu_time_ns_total The "cpu time" used by the Java Virtual Machine process
+# TYPE process_cpu_time_ns_total counter
+process_cpu_time_ns_total{application="produto-service"} 1.2403E12
+# HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
+# TYPE process_cpu_usage gauge
+process_cpu_usage{application="produto-service"} 9.633911368015414E-4
+# HELP process_files_max_files The maximum file descriptor count
+# TYPE process_files_max_files gauge
+process_files_max_files{application="produto-service"} 1048576.0
+# HELP process_files_open_files The open file descriptor count
+# TYPE process_files_open_files gauge
+process_files_open_files{application="produto-service"} 24.0
+# HELP process_start_time_seconds Start time of the process since unix epoch.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds{application="produto-service"} 1.759149770323E9
+# HELP process_uptime_seconds The uptime of the Java virtual machine
+# TYPE process_uptime_seconds gauge
+process_uptime_seconds{application="produto-service"} 13578.528
+# HELP produtos_request_duration_seconds  
+# TYPE produtos_request_duration_seconds summary
+produtos_request_duration_seconds_count{application="produto-service"} 15163
+produtos_request_duration_seconds_sum{application="produto-service"} 23755.442341155
+# HELP produtos_request_duration_seconds_max  
+# TYPE produtos_request_duration_seconds_max gauge
+produtos_request_duration_seconds_max{application="produto-service"} 0.0
+# HELP produtos_requests_total  
+# TYPE produtos_requests_total counter
+produtos_requests_total{application="produto-service"} 15163.0
+# HELP spring_data_repository_invocations_seconds Duration of repository invocations
+# TYPE spring_data_repository_invocations_seconds summary
+spring_data_repository_invocations_seconds_count{application="produto-service",exception="None",method="deleteById",repository="ProdutoRepository",state="SUCCESS"} 1
+spring_data_repository_invocations_seconds_sum{application="produto-service",exception="None",method="deleteById",repository="ProdutoRepository",state="SUCCESS"} 0.004927532
+spring_data_repository_invocations_seconds_count{application="produto-service",exception="None",method="findAll",repository="ProdutoRepository",state="SUCCESS"} 7158
+spring_data_repository_invocations_seconds_sum{application="produto-service",exception="None",method="findAll",repository="ProdutoRepository",state="SUCCESS"} 3084.959451357
+spring_data_repository_invocations_seconds_count{application="produto-service",exception="None",method="findById",repository="ProdutoRepository",state="SUCCESS"} 602
+spring_data_repository_invocations_seconds_sum{application="produto-service",exception="None",method="findById",repository="ProdutoRepository",state="SUCCESS"} 0.698440313
+spring_data_repository_invocations_seconds_count{application="produto-service",exception="None",method="save",repository="ProdutoRepository",state="SUCCESS"} 7169
+spring_data_repository_invocations_seconds_sum{application="produto-service",exception="None",method="save",repository="ProdutoRepository",state="SUCCESS"} 248.85415655
+# HELP spring_data_repository_invocations_seconds_max Duration of repository invocations
+# TYPE spring_data_repository_invocations_seconds_max gauge
+spring_data_repository_invocations_seconds_max{application="produto-service",exception="None",method="deleteById",repository="ProdutoRepository",state="SUCCESS"} 0.0
+spring_data_repository_invocations_seconds_max{application="produto-service",exception="None",method="findAll",repository="ProdutoRepository",state="SUCCESS"} 0.0
+spring_data_repository_invocations_seconds_max{application="produto-service",exception="None",method="findById",repository="ProdutoRepository",state="SUCCESS"} 0.0
+spring_data_repository_invocations_seconds_max{application="produto-service",exception="None",method="save",repository="ProdutoRepository",state="SUCCESS"} 0.0
+# HELP spring_security_authorizations_active_seconds  
+# TYPE spring_security_authorizations_active_seconds summary
+spring_security_authorizations_active_seconds_count{application="produto-service",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request"} 0
+spring_security_authorizations_active_seconds_sum{application="produto-service",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request"} 0.0
+# HELP spring_security_authorizations_active_seconds_max  
+# TYPE spring_security_authorizations_active_seconds_max gauge
+spring_security_authorizations_active_seconds_max{application="produto-service",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request"} 0.0
+# HELP spring_security_authorizations_seconds  
+# TYPE spring_security_authorizations_seconds summary
+spring_security_authorizations_seconds_count{application="produto-service",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request"} 1161
+spring_security_authorizations_seconds_sum{application="produto-service",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request"} 9.385350369
+spring_security_authorizations_seconds_count{application="produto-service",error="none",spring_security_authentication_type="UsernamePasswordAuthenticationToken",spring_security_authorization_decision="true",spring_security_object="request"} 15361
+spring_security_authorizations_seconds_sum{application="produto-service",error="none",spring_security_authentication_type="UsernamePasswordAuthenticationToken",spring_security_authorization_decision="true",spring_security_object="request"} 9.757688714
+spring_security_authorizations_seconds_count{application="produto-service",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request"} 2711
+spring_security_authorizations_seconds_sum{application="produto-service",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request"} 0.247394451
+# HELP spring_security_authorizations_seconds_max  
+# TYPE spring_security_authorizations_seconds_max gauge
+spring_security_authorizations_seconds_max{application="produto-service",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request"} 0.0
+spring_security_authorizations_seconds_max{application="produto-service",error="none",spring_security_authentication_type="UsernamePasswordAuthenticationToken",spring_security_authorization_decision="true",spring_security_object="request"} 0.0
+spring_security_authorizations_seconds_max{application="produto-service",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request"} 9.9805E-5
+# HELP spring_security_filterchains_JwtRequestFilter_after_total  
+# TYPE spring_security_filterchains_JwtRequestFilter_after_total counter
+spring_security_filterchains_JwtRequestFilter_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_JwtRequestFilter_before_total  
+# TYPE spring_security_filterchains_JwtRequestFilter_before_total counter
+spring_security_filterchains_JwtRequestFilter_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_access_exceptions_after_total  
+# TYPE spring_security_filterchains_access_exceptions_after_total counter
+spring_security_filterchains_access_exceptions_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_access_exceptions_before_total  
+# TYPE spring_security_filterchains_access_exceptions_before_total counter
+spring_security_filterchains_access_exceptions_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_active_seconds  
+# TYPE spring_security_filterchains_active_seconds summary
+spring_security_filterchains_active_seconds_count{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 0
+spring_security_filterchains_active_seconds_sum{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 0.0
+spring_security_filterchains_active_seconds_count{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 0
+spring_security_filterchains_active_seconds_sum{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 0.0
+# HELP spring_security_filterchains_active_seconds_max  
+# TYPE spring_security_filterchains_active_seconds_max gauge
+spring_security_filterchains_active_seconds_max{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 0.0
+spring_security_filterchains_active_seconds_max{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 0.0
+# HELP spring_security_filterchains_authentication_anonymous_after_total  
+# TYPE spring_security_filterchains_authentication_anonymous_after_total counter
+spring_security_filterchains_authentication_anonymous_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_authentication_anonymous_before_total  
+# TYPE spring_security_filterchains_authentication_anonymous_before_total counter
+spring_security_filterchains_authentication_anonymous_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_authorization_after_total  
+# TYPE spring_security_filterchains_authorization_after_total counter
+spring_security_filterchains_authorization_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 17838.0
+# HELP spring_security_filterchains_authorization_before_total  
+# TYPE spring_security_filterchains_authorization_before_total counter
+spring_security_filterchains_authorization_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_context_async_after_total  
+# TYPE spring_security_filterchains_context_async_after_total counter
+spring_security_filterchains_context_async_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_context_async_before_total  
+# TYPE spring_security_filterchains_context_async_before_total counter
+spring_security_filterchains_context_async_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_context_holder_after_total  
+# TYPE spring_security_filterchains_context_holder_after_total counter
+spring_security_filterchains_context_holder_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_context_holder_before_total  
+# TYPE spring_security_filterchains_context_holder_before_total counter
+spring_security_filterchains_context_holder_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_context_servlet_after_total  
+# TYPE spring_security_filterchains_context_servlet_after_total counter
+spring_security_filterchains_context_servlet_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_context_servlet_before_total  
+# TYPE spring_security_filterchains_context_servlet_before_total counter
+spring_security_filterchains_context_servlet_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_header_after_total  
+# TYPE spring_security_filterchains_header_after_total counter
+spring_security_filterchains_header_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_header_before_total  
+# TYPE spring_security_filterchains_header_before_total counter
+spring_security_filterchains_header_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_logout_after_total  
+# TYPE spring_security_filterchains_logout_after_total counter
+spring_security_filterchains_logout_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_logout_before_total  
+# TYPE spring_security_filterchains_logout_before_total counter
+spring_security_filterchains_logout_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_requestcache_after_total  
+# TYPE spring_security_filterchains_requestcache_after_total counter
+spring_security_filterchains_requestcache_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_requestcache_before_total  
+# TYPE spring_security_filterchains_requestcache_before_total counter
+spring_security_filterchains_requestcache_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_seconds  
+# TYPE spring_security_filterchains_seconds summary
+spring_security_filterchains_seconds_count{application="produto-service",error="ServletException",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 233
+spring_security_filterchains_seconds_sum{application="produto-service",error="ServletException",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 8.72179694
+spring_security_filterchains_seconds_count{application="produto-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="AuthorizationFilter",spring_security_reached_filter_section="before"} 19233
+spring_security_filterchains_seconds_sum{application="produto-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="AuthorizationFilter",spring_security_reached_filter_section="before"} 4937.42202104
+spring_security_filterchains_seconds_count{application="produto-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="DisableEncodeUrlFilter",spring_security_reached_filter_section="after"} 18999
+spring_security_filterchains_seconds_sum{application="produto-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="DisableEncodeUrlFilter",spring_security_reached_filter_section="after"} 87.322516216
+# HELP spring_security_filterchains_seconds_max  
+# TYPE spring_security_filterchains_seconds_max gauge
+spring_security_filterchains_seconds_max{application="produto-service",error="ServletException",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 0.0
+spring_security_filterchains_seconds_max{application="produto-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="AuthorizationFilter",spring_security_reached_filter_section="before"} 6.87135E-4
+spring_security_filterchains_seconds_max{application="produto-service",error="none",spring_security_filterchain_position="12",spring_security_filterchain_size="12",spring_security_reached_filter_name="DisableEncodeUrlFilter",spring_security_reached_filter_section="after"} 2.82113E-4
+# HELP spring_security_filterchains_session_management_after_total  
+# TYPE spring_security_filterchains_session_management_after_total counter
+spring_security_filterchains_session_management_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_session_management_before_total  
+# TYPE spring_security_filterchains_session_management_before_total counter
+spring_security_filterchains_session_management_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_filterchains_session_urlencoding_after_total  
+# TYPE spring_security_filterchains_session_urlencoding_after_total counter
+spring_security_filterchains_session_urlencoding_after_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="after"} 18999.0
+# HELP spring_security_filterchains_session_urlencoding_before_total  
+# TYPE spring_security_filterchains_session_urlencoding_before_total counter
+spring_security_filterchains_session_urlencoding_before_total{application="produto-service",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",spring_security_reached_filter_section="before"} 19233.0
+# HELP spring_security_http_secured_requests_active_seconds  
+# TYPE spring_security_http_secured_requests_active_seconds summary
+spring_security_http_secured_requests_active_seconds_count{application="produto-service"} 1
+spring_security_http_secured_requests_active_seconds_sum{application="produto-service"} 0.002705608
+# HELP spring_security_http_secured_requests_active_seconds_max  
+# TYPE spring_security_http_secured_requests_active_seconds_max gauge
+spring_security_http_secured_requests_active_seconds_max{application="produto-service"} 0.002706208
+# HELP spring_security_http_secured_requests_seconds  
+# TYPE spring_security_http_secured_requests_seconds summary
+spring_security_http_secured_requests_seconds_count{application="produto-service",error="ServletException"} 233
+spring_security_http_secured_requests_seconds_sum{application="produto-service",error="ServletException"} 8210.049055526
+spring_security_http_secured_requests_seconds_count{application="produto-service",error="none"} 17838
+spring_security_http_secured_requests_seconds_sum{application="produto-service",error="none"} 16558.023995151
+# HELP spring_security_http_secured_requests_seconds_max  
+# TYPE spring_security_http_secured_requests_seconds_max gauge
+spring_security_http_secured_requests_seconds_max{application="produto-service",error="ServletException"} 0.0
+spring_security_http_secured_requests_seconds_max{application="produto-service",error="none"} 0.012171198
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge
+system_cpu_count{application="produto-service"} 4.0
+# HELP system_cpu_usage The "recent cpu usage" of the system the application is running in
+# TYPE system_cpu_usage gauge
+system_cpu_usage{application="produto-service"} 0.053857881886047204
+# HELP system_load_average_1m The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time
+# TYPE system_load_average_1m gauge
+system_load_average_1m{application="produto-service"} 0.43701171875
+# HELP tomcat_sessions_active_current_sessions  
+# TYPE tomcat_sessions_active_current_sessions gauge
+tomcat_sessions_active_current_sessions{application="produto-service"} 0.0
+# HELP tomcat_sessions_active_max_sessions  
+# TYPE tomcat_sessions_active_max_sessions gauge
+tomcat_sessions_active_max_sessions{application="produto-service"} 0.0
+# HELP tomcat_sessions_alive_max_seconds  
+# TYPE tomcat_sessions_alive_max_seconds gauge
+tomcat_sessions_alive_max_seconds{application="produto-service"} 0.0
+# HELP tomcat_sessions_created_sessions_total  
+# TYPE tomcat_sessions_created_sessions_total counter
+tomcat_sessions_created_sessions_total{application="produto-service"} 0.0
+# HELP tomcat_sessions_expired_sessions_total  
+# TYPE tomcat_sessions_expired_sessions_total counter
+tomcat_sessions_expired_sessions_total{application="produto-service"} 0.0
+# HELP tomcat_sessions_rejected_sessions_total  
+# TYPE tomcat_sessions_rejected_sessions_total counter
+tomcat_sessions_rejected_sessions_total{application="produto-service"} 0.0

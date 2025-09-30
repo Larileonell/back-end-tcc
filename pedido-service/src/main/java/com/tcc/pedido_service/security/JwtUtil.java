@@ -12,20 +12,18 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-
-    private final String SECRET_KEY = "minhaChaveSecretaSuperSegura12345"; // mesma chave do user-service
+    private final String SECRET_KEY = "minhaChaveSecretaSuperSegura12345";
     private final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     private final long EXPIRATION_TIME = 1000 * 60 * 60 * 10; // 10h
 
     public String generateToken(Long userId) {
         return Jwts.builder()
-                .setSubject(String.valueOf(userId)) // sempre ID, nunca username
+                .setSubject(String.valueOf(userId))
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
-
 
     public String extractUserId(String token) {
         return Jwts.parserBuilder()
@@ -48,4 +46,3 @@ public class JwtUtil {
         }
     }
 }
-
