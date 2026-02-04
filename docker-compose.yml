@@ -23,3 +23,23 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  db-user:
+    image: postgres:15
+    container_name: db-user
+    environment:
+      POSTGRES_DB: user_db
+      POSTGRES_USER: user_admin
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5433:5432"
+
+  db-produto:
+      image: postgres:15
+      container_name: db-produto
+      environment:
+        POSTGRES_DB: product_db
+        POSTGRES_USER: product_admin
+        POSTGRES_PASSWORD: password123
+      ports:
+        - "5434:5432"
+
