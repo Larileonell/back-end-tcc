@@ -44,7 +44,7 @@ public class AuthController {
 
         if (passwordEncoder.matches(user.getPassword(), found.getPassword())) {
             userService.incrementLogins();
-            String token = jwtUtil.generateToken(found.getId());
+            String token = jwtUtil.generateToken(found.getEmail(), java.util.Collections.emptyList());
             return ResponseEntity.ok(Map.of("token", token));
         } else {
             return ResponseEntity.status(401).body(Map.of("error", "Senha inválida"));

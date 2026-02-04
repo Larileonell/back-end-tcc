@@ -1,0 +1,27 @@
+﻿spring:
+  application:
+    name: produto-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/produtodb
+    username: produto
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+grpc:
+  server:
+    port: 9092
+jwt:
+  secret: meusegredojwt123
+  expiration: 86400000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
