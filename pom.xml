@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>common-proto</module>
         <module>user-service</module>
         <module>produto-service</module>
         <module>pedido-service</module>
